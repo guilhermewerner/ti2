@@ -1,0 +1,38 @@
+.navbar-brand {
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 650;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav {
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 500;
+}
+
+.banner {
+    width: 100%;
+    height: 600px;
+    background: #e9eef1;
+}
+
+.heading {
+    flex-direction: column;
+}
+
+.subtitle {
+    color: #a1a1a1;
+    font-weight: 300;
+}
+
+.card {
+    border: 0;
+    border-radius: 10px;
+    background: #d4d4d4;
+}
+
+footer {
+    height: 1920px;
+}
