@@ -38,7 +38,31 @@
 .card {
     border: 0;
     border-radius: 10px;
+}
+
+.way-1 {
+    background: #d3d3d3;
+}
+
+.way-2 {
+    background: #c0c0c0;
+}
+
+.way-3 {
     background: #d4d4d4;
+}
+
+.way-text {
+    color: #ffffff;
+}
+
+.card-title h1 {
+    color: #e9e9e9;
+}
+
+.card-link {
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .about-row {
@@ -51,9 +75,10 @@
 }
 
 .about-card {
-    height: 512px;
+    height: 550px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    background-color: #babec1;
 }
 
 .about-text {
@@ -62,6 +87,73 @@
     font-weight: 400;
 }
 
+.articles {
+    background: #f5f6f9;
+}
+
+.article-text {
+    color: #797979;
+}
+
+.card-img-top {
+    background: #e0e0e0;
+    height: 200px;
+}
+
+.channels {
+    background: linear-gradient(45deg, #cecece, #30364d);
+}
+
+.click-here {
+    font-size: large;
+    font-weight: 500;
+    color: #fafafa;
+}
+
+.jombo {
+    width: 100%;
+    height: 330px;
+    background: #ebebeb;
+}
+
+.page-head {
+    flex-direction: column;
+    margin: 5em;
+}
+
+.blog-section {
+    margin-top: 5em;
+}
+
 footer {
     height: 1920px;
+}
+
+.form-label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-bottom: 25px;
+}
+
+.dep-card {
+    background: linear-gradient(180deg, #a8a8a8, #414141);
+}
+
+.dep-btn {
+    font-size: x-large;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.article-image {
+    position: relative;
+    display: inline-block;
+}
+
+.article-badge {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 5px 10px;
 }
