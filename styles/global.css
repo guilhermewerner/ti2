@@ -1,3 +1,7 @@
+.navbar {
+    background: #ffffff;
+}
+
 .navbar-brand {
     text-transform: uppercase;
     font-size: 2em;
@@ -14,7 +18,7 @@
 
 .banner {
     width: 100%;
-    height: 600px;
+    height: 450px;
     background: #e9eef1;
 }
 
@@ -27,10 +31,35 @@
     font-weight: 300;
 }
 
+.sep {
+    margin-bottom: 100px;
+}
+
 .card {
     border: 0;
     border-radius: 10px;
     background: #d4d4d4;
+}
+
+.about-row {
+    width: 100%;
+}
+
+.about {
+    width: 100%;
+    background: #fafafa;
+}
+
+.about-card {
+    height: 512px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.about-text {
+    color: #afafaf;
+    font-size: 1.1em;
+    font-weight: 400;
 }
 
 footer {
