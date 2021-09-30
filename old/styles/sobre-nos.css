@@ -1,0 +1,188 @@
+.mail-link {
+    color: #04b5ae;
+    text-decoration: none;
+}
+
+.mail-div {
+    display: block;
+}
+
+.div-wpp {
+    position: relative;
+}
+
+.wpp-btn {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    width: auto;
+    color: #0AC142;
+    text-decoration: none;
+    font-size: medium;
+    padding: 6px 12px;
+    margin: 20px 0px;
+    border: #0AC142 1px solid;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.wpp-img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.div-profile {
+    position: relative;
+}
+
+.div-profile::before {
+    content: "";
+    bottom: 0px;
+    right: 16px;
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    background-color: rgb(74, 213, 4);
+    display: block;
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    border: 2px solid rgb(9, 94, 84);
+}
+
+.wpp-area {
+    opacity: 0%;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: -300px;
+    width: 360px;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;
+    cursor: default;
+}
+
+.wpp-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding: 24px 20px;
+    background-color: rgb(9, 94, 84);
+    position: relative;
+}
+
+.img-profile {
+    width: 50px;
+    margin-right: 16px;
+}
+
+.profile-name {
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+}
+
+.wpp-2 {
+    position: relative;
+    padding: 20px 20px;
+    background-color: rgb(230, 221, 212);
+}
+
+.wpp-2::before {
+    display: block;
+    position: absolute;
+    content: "";
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    opacity: 0.08;
+    background-image: url("../Imagens/wpp-pattern.png");
+}
+
+.wpp-chat {
+    position: relative;
+    z-index: auto;
+    background-color: white;
+    padding: 7px 14px 6px;
+    border-radius: 0px 8px 8px;
+    max-width: calc(100% - 66px);
+}
+
+.wpp-chat::before {
+    position: absolute;
+    background-image: url("../Imagens/chat-corner.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    top: 0px;
+    left: -12px;
+    width: 12px;
+    height: 19px;
+}
+
+.wpp-chat-nome {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 700;
+}
+
+.wpp-chat-mensagem {
+    color: rgb(17, 17, 17);
+    font-size: 14px;
+    line-height: 19px;
+    margin-top: 4px;
+}
+
+.wpp-chat-time {
+    text-align: right;
+    width: 100%;
+    color: #797979;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+.wpp-3 {
+    background-color: white;
+}
+
+.wpp-redirect {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgb(79, 206, 93);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 20px;
+    overflow: hidden;
+    appearance: none;
+}
+
+.wpp-close {
+    position: absolute;
+    top: 5px;
+    right: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.wpp-img-close {
+    width: 10px;
+}
