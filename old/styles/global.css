@@ -26,7 +26,7 @@
     align-items: center;
 }
 
-.banner-div{
+.banner-div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@
     font-size: 4em;
 }
 
-.banner-icons{
+.banner-icons {
     width: 80px;
     margin: 0px 20px;
 }
@@ -59,7 +59,7 @@
 }
 
 .way-1 {
-    background:white;
+    background: white;
     border: 1px solid #04B5AE;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .way-3 {
-    background:white;
+    background: white;
     border: 1px solid #04B5AE;
 }
 
@@ -81,23 +81,23 @@
     color: #ffffff;
 }
 
-.text-light-ways{
+.text-light-ways {
     color: rgba(4, 181, 174, 0.6);
 }
 
-.text-muted-ways{
+.text-muted-ways {
     text-transform: capitalize;
     font-size: 18px;
     color: lightslategray;
 }
 
-.text-muted-ways2{
+.text-muted-ways2 {
     text-transform: capitalize;
     font-size: 18px;
     color: whitesmoke;
 }
 
-.btn-light-2{
+.btn-light-2 {
     background-color: transparent;
     border: 1px solid white;
     border-radius: 8px;
@@ -106,34 +106,35 @@
     color: white;
     font-weight: 500;
 }
-.btn-light-2:hover{
+
+.btn-light-2:hover {
     color: #04B5AE;
     border: 1px solid #04B5AE;
     background-color: white;
 }
 
-.favorite-button{
+.favorite-button {
     background-color: white;
     border: 1px solid #04B5AE;
     border-radius: 6px;
     color: lightsteelblue;
 }
 
-.favorite-button-active{
+.favorite-button-active {
     background-color: white;
     border: 1px solid #04B5AE;
     border-radius: 6px;
     color: #04B5AE;
 }
 
-.container-blog{
+.container-blog {
     width: 70vw;
     max-width: 1100px;
     margin-right: auto;
     margin-left: auto;
 }
 
-.img-user-depo{
+.img-user-depo {
     height: 35px;
 }
 
@@ -183,7 +184,7 @@
 }
 
 .channels {
-    background: linear-gradient(45deg, rgba(4, 181, 174, 0.4) , #04B5AE);
+    background: linear-gradient(45deg, rgba(4, 181, 174, 0.4), #04B5AE);
 }
 
 .channels-flex {
@@ -196,8 +197,7 @@
     .channels-flex {
         flex-direction: row;
     }
-
-    .container-blog{
+    .container-blog {
         width: 95vw;
     }
 }
@@ -286,16 +286,15 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-    .container-blog{
+    .container-blog {
         width: 90vw;
     }
-
     .about-card {
-    height: 300px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    background-image: url(/Codigo/Imagens/puc-img.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+        height: 300px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background-image: url(/Codigo/Imagens/puc-img.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
