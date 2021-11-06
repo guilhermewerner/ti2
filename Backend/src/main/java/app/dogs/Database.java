@@ -1,12 +1,12 @@
-package app.dogs.database;
+package app.dogs;
 
 import app.dogs.models.*;
 import java.sql.*;
 
-public class DatabaseConnection {
+public class Database {
     private Connection connection;
 
-    public DatabaseConnection() throws Exception {
+    public Database() throws Exception {
         String host = "localhost";
         int port = 5432;
         String user = "postgres";
@@ -50,27 +50,29 @@ public class DatabaseConnection {
     }
 
     public Article[] getArticles() {
-        Article[] article = null;
+        Article[] articles = new Article[0];
 
         try {
             Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = st.executeQuery("SELECT * FROM article");
+
             if (rs.next()) {
                 rs.last();
-                article = new Article[rs.getRow()];
+                articles = new Article[rs.getRow()];
                 rs.beforeFirst();
 
                 for (int i = 0; rs.next(); i++) {
-                    article[i] = new Article(rs.getInt("id"), rs.getString("name"), rs.getString("text"),
+                    articles[i] = new Article(rs.getInt("id"), rs.getString("name"), rs.getString("text"),
                             rs.getTimestamp("date"));
                 }
             }
+
             st.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-        return article;
+        return articles;
     }
 
     public Article getArticle(int id) {
@@ -132,7 +134,7 @@ public class DatabaseConnection {
 
         try {
             Statement st = connection.createStatement();
-            st.executeUpdate("INSERT INTO comment (id, userId, articleId, content, date) " + "VALUES (" + comment.id
+            st.executeUpdate("INSERT INTO comment (id, user_id, article_id, content, date) " + "VALUES (" + comment.id
                     + ", '" + comment.userId + "', '" + comment.articleId + "', '" + comment.content + "', '"
                     + comment.date + "');");
             st.close();
@@ -145,18 +147,18 @@ public class DatabaseConnection {
     }
 
     public Comment[] getComments() {
-        Comment[] comment = null;
+        Comment[] comments = new Comment[0];
 
         try {
             Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = st.executeQuery("SELECT * FROM comment");
             if (rs.next()) {
                 rs.last();
-                comment = new Comment[rs.getRow()];
+                comments = new Comment[rs.getRow()];
                 rs.beforeFirst();
 
                 for (int i = 0; rs.next(); i++) {
-                    comment[i] = new Comment(rs.getInt("id"), rs.getInt("userId"), rs.getInt("articleId"),
+                    comments[i] = new Comment(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("article_id"),
                             rs.getString("content"), rs.getTimestamp("date"));
                 }
             }
@@ -165,7 +167,7 @@ public class DatabaseConnection {
             System.out.println(e.getMessage());
         }
 
-        return comment;
+        return comments;
     }
 
     public Comment getComment(int id) {
@@ -175,7 +177,7 @@ public class DatabaseConnection {
             Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = st.executeQuery("SELECT * FROM comment WHERE comment.id = " + id);
             if (rs.first()) {
-                comment = new Comment(rs.getInt("id"), rs.getInt("userId"), rs.getInt("articleId"),
+                comment = new Comment(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("article_id"),
                         rs.getString("content"), rs.getTimestamp("date"));
             }
             st.close();
@@ -239,7 +241,7 @@ public class DatabaseConnection {
     }
 
     public Testimonial[] getTestimonials() {
-        Testimonial[] testimonial = null;
+        Testimonial[] testimonials = new Testimonial[0];
 
         try {
             Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -247,13 +249,13 @@ public class DatabaseConnection {
 
             if (rs.next()) {
                 rs.last();
-                testimonial = new Testimonial[rs.getRow()];
+                testimonials = new Testimonial[rs.getRow()];
                 rs.beforeFirst();
 
                 for (int i = 0; rs.next(); i++) {
-                    testimonial[i] = new Testimonial(rs.getInt("id"), rs.getString("userId"), rs.getString("articleId"),
-                            rs.getInt("content"), rs.getString("date"), rs.getString("date"), rs.getString("date"),
-                            rs.getTimestamp("date"));
+                    testimonials[i] = new Testimonial(rs.getInt("id"), rs.getString("user_id"),
+                            rs.getString("articleId"), rs.getInt("content"), rs.getString("date"), rs.getString("date"),
+                            rs.getString("date"), rs.getTimestamp("date"));
                 }
             }
 
@@ -262,7 +264,7 @@ public class DatabaseConnection {
             System.out.println(e.getMessage());
         }
 
-        return testimonial;
+        return testimonials;
     }
 
     public Testimonial getTestimonial(int id) {
@@ -273,7 +275,7 @@ public class DatabaseConnection {
             ResultSet rs = st.executeQuery("SELECT * FROM testimonial WHERE testimonial.id = " + id);
 
             if (rs.first()) {
-                testimonial = new Testimonial(rs.getInt("id"), rs.getString("userId"), rs.getString("articleId"),
+                testimonial = new Testimonial(rs.getInt("id"), rs.getString("user_id"), rs.getString("articleId"),
                         rs.getInt("content"), rs.getString("date"), rs.getString("date"), rs.getString("date"),
                         rs.getTimestamp("date"));
             }
@@ -292,7 +294,7 @@ public class DatabaseConnection {
         try {
             Statement st = connection.createStatement();
             String sql = "UPDATE testimonial SET name = '" + testimonial.name + "', description = '"
-                    + testimonial.description + "', userId = '" + testimonial.userId + "', type = '"
+                    + testimonial.description + "', user_id = '" + testimonial.userId + "', type = '"
                     + testimonial.type.toString() + "', location = '" + testimonial.location + "', images = '"
                     + testimonial.getImages() + "', date = '" + testimonial.date + "'" + " WHERE id = "
                     + testimonial.id;
@@ -312,6 +314,102 @@ public class DatabaseConnection {
         try {
             Statement st = connection.createStatement();
             st.executeUpdate("DELETE FROM testimonial WHERE id = " + id);
+            st.close();
+            status = true;
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+
+        return status;
+    }
+
+    // User
+
+    public boolean insertUser(User user) {
+        boolean status = false;
+
+        try {
+            Statement st = connection.createStatement();
+            st.executeUpdate("INSERT INTO public.user (id, name, pasword_hash, email, phone) " + "VALUES (" + user.id + ", '"
+                    + user.name + "', '" + user.paswordHash + "', '" + user.email + "', '" + user.phone + "');");
+            st.close();
+            status = true;
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+
+        return status;
+    }
+
+    public User[] getUsers() {
+        User[] users = new User[0];
+
+        try {
+            Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = st.executeQuery("SELECT * FROM public.user");
+
+            if (rs.next()) {
+                rs.last();
+                users = new User[rs.getRow()];
+                rs.beforeFirst();
+
+                for (int i = 0; rs.next(); i++) {
+                    users[i] = new User(rs.getInt("id"), rs.getString("name"), rs.getString("pasword_hash"),
+                            rs.getString("email"), rs.getString("phone"));
+                }
+            }
+
+            st.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return users;
+    }
+
+    public User getUser(int id) {
+        User user = null;
+
+        try {
+            Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = st.executeQuery("SELECT * FROM public.user WHERE public.user.id = " + id);
+
+            if (rs.first()) {
+                user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("pasword_hash"),
+                        rs.getString("email"), rs.getString("phone"));
+            }
+
+            st.close();
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+
+        return user;
+    }
+
+    public boolean updateUser(User user) {
+        boolean status = false;
+
+        try {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE public.user SET name = '" + user.name + "', pasword_hash = '" + user.paswordHash
+                    + "', email = '" + user.email + "', phone = '" + user.phone + "'" + " WHERE id = " + user.id;
+            st.executeUpdate(sql);
+            st.close();
+            status = true;
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+
+        return status;
+    }
+
+    public boolean deleteUser(int id) {
+        boolean status = false;
+
+        try {
+            Statement st = connection.createStatement();
+            st.executeUpdate("DELETE FROM public.user WHERE id = " + id);
             st.close();
             status = true;
         } catch (SQLException u) {
