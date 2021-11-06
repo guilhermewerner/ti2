@@ -1,22 +1,38 @@
 package app.dogs.models;
 
-import java.sql.Date;
+import app.dogs.RandomId;
+import java.sql.*;
+import java.time.*;
 
 public class Article {
     public final int id;
     public String name;
     public String text;
-    public Date date;
+    public LocalDateTime date;
 
-    public Article() {
-        this(null, null, null);
+    /**
+     * Constructor for use when creating a new article on the database.
+     *
+     * @param name
+     * @param text
+     */
+    public Article(String name, String text) {
+        this(RandomId.next(), name, text, LocalDateTime.now());
     }
 
-    public Article(String name, String text, Date date) {
-        this(0, null, null, null);
+    /**
+     * Constructor for use when fetching a article from the database
+     *
+     * @param id
+     * @param name
+     * @param text
+     * @param date
+     */
+    public Article(int id, String name, String text, Timestamp date) {
+        this(id, name, text, date.toLocalDateTime());
     }
 
-    public Article(int id, String name, String text, Date date) {
+    public Article(int id, String name, String text, LocalDateTime date) {
         this.id = id;
         this.name = name;
         this.text = text;
