@@ -70,7 +70,7 @@ function GetComments() {
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-4">
                                     <div class="flex-shrink-0">
-                                        <img src="./Imagens/user.png" alt="...">
+                                        <img src="./img/user.png" alt="...">
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         ${data[i].userId}

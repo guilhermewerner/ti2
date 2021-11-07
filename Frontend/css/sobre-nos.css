@@ -101,7 +101,7 @@
     width: 100%;
     z-index: 0;
     opacity: 0.08;
-    background-image: url("../Imagens/wpp-pattern.png");
+    background-image: url("../img/wpp-pattern.png");
 }
 
 .wpp-chat {
@@ -115,7 +115,7 @@
 
 .wpp-chat::before {
     position: absolute;
-    background-image: url("../Imagens/chat-corner.png");
+    background-image: url("../img/chat-corner.png");
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
