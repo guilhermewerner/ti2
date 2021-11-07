@@ -1,3 +1,17 @@
+/*width*/
+::-webkit-scrollbar {
+    width:9px;
+}
+/*track*/
+::-webkit-scrollbar-track {
+    background:rgba(255, 255, 255, 0);
+}
+/*thumb*/
+::-webkit-scrollbar-thumb {
+    background:#239c98 ;
+    border-radius:4px;
+}
+
 .navbar {
     background: #ffffff;
 }
@@ -16,6 +30,7 @@
     font-size: small;
     font-weight: 500;
 }
+
 
 .banner {
     width: 100%;
@@ -138,8 +153,23 @@
     height: 35px;
 }
 
+.card.card-blog {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.card-text.article-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
 .card-title h1 {
     color: #e9e9e9;
+}
+h5.card-title {
+    font-size: 20px;
 }
 
 .card-link {
@@ -157,11 +187,12 @@
 }
 
 .about-card {
-    height: 550px;
+    height: 500px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     background-image: url(../Imagens/puc-img.png);
-    background-size: 100%;
+    background-repeat: no-repeat;
+     background-size: cover;
 }
 
 .about-text {
@@ -284,6 +315,7 @@ footer {
 .desaparecer {
     display: none;
 }
+
 
 @media screen and (max-width: 600px) {
     .container-blog {

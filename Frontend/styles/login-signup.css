@@ -1,0 +1,344 @@
+/**
+ * LOGIN/SIGNUP CSS 
+ */  
+
+#login-nav-button{
+  cursor: pointer;
+}
+
+input {
+    border:0;outline:0;
+}
+input:focus {
+    outline:none!important;
+}
+
+
+.text-field-signup {
+  width: 100%;
+  margin-bottom: 20px;
+  border-style: none none solid;
+  border-width: 1px;
+  border-color: #000 #000 #236e6b;
+  border-radius: 0px;
+  background-color: transparent;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.text-field-signup:focus {
+  border-bottom-color: #04bab4;
+  color: #04b5ae;
+}
+
+.text-field-signup::-webkit-input-placeholder {
+  color: #236e6b;
+}
+
+.text-field-signup:-ms-input-placeholder {
+  color: #236e6b;
+}
+
+.text-field-signup::-ms-input-placeholder {
+  color: #236e6b;
+}
+
+.text-field-signup::placeholder {
+  color: #236e6b;
+}
+
+.text-field-signup.half-r {
+  width: 49%;
+  margin-left: 1%;
+}
+
+.text-field-signup.half-l {
+  width: 49%;
+  margin-right: 1%;
+}
+
+.button-signup {
+  width: 100%;
+  margin-top: 20px;
+  padding: 8px 24px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #236e6b;
+  border-radius: 7px;
+  background-color: transparent;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  color: #236e6b;
+}
+
+.button-signup:hover {
+  background-color: #04b5ae;
+  color: #fff;
+}
+
+.form-signup {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.login-block {
+  position: absolute;
+  z-index: 102;
+  display: none;
+  width: 40vw;
+  height: auto;
+  padding: 2vw;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #fcfcfc;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.45);
+}
+
+.login-overlay {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.form-block-login {
+  width: 80%;
+}
+
+.form-login {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.close-login-signup {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+  position: absolute;
+  left: auto;
+  top: 5%;
+  right: 5%;
+  bottom: auto;
+  width: 30px;
+  height: 30px;
+  padding: 5px 10px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form-block-signup {
+  width: 80%;
+}
+
+.wrapper-login-signup {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 100;
+  display: none;
+  opacity: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.h-popup {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: #236e6b;
+  font-size: 28px;
+  text-align: center;
+}
+
+.signup-block {
+  position: absolute;
+  display: none;
+  z-index: 102;
+  width: 40vw;
+  max-width: 600px;
+  height: auto;
+  padding: 2vw;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #fcfcfc;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.45);
+}
+
+.account-status {
+  padding: 4px 8px;
+  margin-top: 8px;
+  -webkit-transition: color 200ms ease;
+  transition: color 200ms ease;
+  color: #787d7d;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.account-status:hover {
+  color: #236e6b;
+}
+
+.text-field-login {
+    width: 100%;
+  margin-bottom: 20px;
+  border-style: none none solid;
+  border-width: 1px;
+  border-color: #000 #000 #236e6b;
+  border-radius: 0px;
+  background-color: transparent;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.text-field-login:focus {
+  border-bottom-color: #04bab4;
+  color: #04b5ae;
+}
+
+.text-field-login::-webkit-input-placeholder {
+  color: #236e6b;
+}
+
+.text-field-login:-ms-input-placeholder {
+  color: #236e6b;
+}
+
+.text-field-login::-ms-input-placeholder {
+  color: #236e6b;
+}
+
+.text-field-login::placeholder {
+  color: #236e6b;
+}
+
+.button-login {
+  width: 100%;
+  margin-top: 20px;
+  padding: 8px 24px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #236e6b;
+  border-radius: 7px;
+  background-color: transparent;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  color: #236e6b;
+}
+
+.button-login:hover {
+  background-color: #04b5ae;
+  color: #fff;
+}
+/**
+ * END LOGIN/SIGNUP CSS 
+ */  
+
+
+ 
+@media screen and (max-width: 767px) {
+  .login-block {
+    width: 80vw;
+  }
+
+  .signup-block {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .login-block {
+    width: 90vw;
+  }
+
+  .signup-block {
+    width: 90vw;
+  }
+}

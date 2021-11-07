@@ -19,6 +19,8 @@
     <!-- Custom Styles -->
     <link href="./styles/global.css" rel="stylesheet" />
     <link href="./styles/sobre-nos.css" rel="stylesheet" />
+    <link href="./styles/login-signup.css" rel="stylesheet" />
+
 
     <!-- FontAwesome -->
     <script defer src="https://kit.fontawesome.com/719a8c7d66.js" crossorigin="anonymous"></script>
@@ -30,7 +32,10 @@
     <!-- JS -->
     <script defer src="./Scripts/wpp-button.js"></script>
 
-    <script defer src="./script.js"></script>
+    <script defer src="./Scripts/login.js"></script>
+
+    <script defer src="./Scripts/blog.js"></script>
+
 </head>
 
 <body>
@@ -59,17 +64,75 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#sobre">Sobre Nós</a>
                     </li>
+                    <li class="nav-item">
+                        <div class="nav-link" id="login-nav-button">Login</div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <main>
+        <!--LOGIN-->
+        <div class="wrapper-login-signup" id="wrapper-login-signup">
+            <div class="login-block" id="login-block">
+                <h2 class="h-popup">LOGIN</h2>
+                <div class="form-block-login">
+                    <form id="login-form" name="email-form" data-name="Email Form" class="form-login">
+                        <input type="email"
+                            class="text-field-login" maxlength="256" name="e-mail" data-name="e-mail"
+                            placeholder="E-mail" id="e-mail-login" required="">
+                        <input type="password"
+                            class="text-field-login" maxlength="256" 
+                            name="senha" data-name="senha" placeholder="Senha"
+                            id="senha-login" required="">
+                        <input type="submit" value="Entrar" 
+                            id="button-login" class="button-login w-button">
+                    </form>
+                </div>
+                <div class="close-login-signup">x</div>
+                <div class="account-status" id="no-account">Não possui conta? Cadastre-se agora.</div>
+            </div>
+            <div class="signup-block" id="signup-block">
+                <h2 class="h-popup">SIGNUP</h2>
+                <div class="form-block-signup">
+                    <form id="signup-form" name="signup-form" data-name="Signup Form" class="form-signup">
+                        <input type="text"
+                            class="text-field-signup half-l" maxlength="256" 
+                            name="nome" data-name="nome"
+                            placeholder="Nome " id="nome-signup" required="">
+                        <input type="text"
+                            class="text-field-signup half-r" maxlength="256" 
+                            name="Sobrenome" data-name="Sobrenome"
+                            placeholder="Sobrenome" id="sobrenome-signup" required="">
+                        <input type="email"
+                            class="text-field-signup" maxlength="256" 
+                            name="e-mail" data-name="e-mail"
+                            placeholder="E-mail" id="e-mail-signup" required="">
+                        <input type="password"
+                            class="text-field-signup" maxlength="256" 
+                            name="senha" data-name="senha" placeholder="Nova senha"
+                            id="senha-signup" required="">
+                        <input type="password"
+                            class="text-field-signup" maxlength="256" 
+                            name="senha-confirmation" data-name="senha-confirmation" 
+                            placeholder="Confirmar senha"
+                            id="senha-confirmation-signup" required="">
+                        <input type="submit" value="Cadastrar"
+                            id="button-signup" class="button-signup">
+                    </form>
+                </div>
+                <div class="close-login-signup">x</div>
+                <div class="account-status" id="with-account">Já possui uma conta?</div>
+            </div>
+            <div class="login-overlay"></div>
+        </div>
+        <!--END LOGIN-->
         <section class="banner">
             <div class="banner-div">
-                <img class="banner-icons" src="../Imagens/dog-banner.png" alt="">
+                <img class="banner-icons" src="./Imagens/dog-banner.png" alt="">
                 <div>Bem-vindo!</div>
-                <img class="banner-icons" src="../Imagens/cat-banner.png" alt="">
+                <img class="banner-icons" src="./Imagens/cat-banner.png" alt="">
             </div>
         </section>
         <section class="sep" id="denunciar">
@@ -183,16 +246,16 @@
                                 </div>
                                 <div class="div-wpp">
                                     <div class="wpp-btn" onclick="wppShow()">
-                                        <img class="wpp-img" src="../Imagens/005-whatsapp.png" alt="">
+                                        <img class="wpp-img" src="./Imagens/005-whatsapp.png" alt="">
                                         Whatsapp
                                     </div>
                                     <div class="wpp-area">
                                         <div class="wpp-1">
                                             <div class="wpp-close" onclick="wppHide()">
-                                                <img class="wpp-img-close" src="../Imagens/close.png">
+                                                <img class="wpp-img-close" src="./Imagens/close.png">
                                             </div>
                                             <div class="div-profile">
-                                                <img class="img-profile" src="../Imagens/wpp-profile.png">
+                                                <img class="img-profile" src="./Imagens/wpp-profile.png">
                                             </div>
                                             <h4 class="profile-name">Maus-tratos aos animais</h4>
                                         </div>
@@ -205,7 +268,7 @@
                                         </div>
                                         <div class="wpp-3">
                                             <div class="wpp-redirect">
-                                                <img class="wpp-img" src="../Imagens/whatsapp.png">
+                                                <img class="wpp-img" src="./Imagens/whatsapp.png">
                                                 Iniciar conversa
                                             </div>
                                         </div>
@@ -225,8 +288,8 @@
                 </div>
             </div>
             <div class="container-blog">
-                <div class="row">
-                    <div class="col">
+                <div class="row" id="row-blog">
+                    <div class="col-lg col-sm mb-3">
                         <div class="card shadow-sm">
                             <img width="300" height="300"
                                 src="https://www.rbsdirect.com.br/filestore/4/1/9/1/4_d6faf78eb8df45d/41914_559bce7bc226835.jpg?w=700"
@@ -267,7 +330,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg mb-3">
+                    <div class="col-lg col-sm mb-3">
                         <div class="card">
                             <img width="300" height="300"
                                 src="https://files.nsctotal.com.br/s3fs-public/styles/teaser_image_style/public/graphql-upload-files/maus%20tratos_3.jpg?WdWyCoJpYJA.Fob.JLQAuRDBadGPMY.s&itok=25pHAXFg&width=750"
@@ -309,7 +372,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg mb-3">
+                    <div class="col-lg col-sm mb-3">
                         <div class="card">
                             <img width="300" height="300"
                                 src="https://s2.glbimg.com/3S05wkuSIS1PM5BuCtrLSG8vEL8=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/M/f/YSoQEfQW2n7KootFdvAg/dog-3071334-1920.jpg"
@@ -379,7 +442,7 @@
                             <div class="card-body p-5">
                                 <div class="d-flex align-items-center mb-4">
                                     <div class="flex-shrink-0">
-                                        <img class="img-user-depo" src="../Imagens/user-boy.png" alt="...">
+                                        <img class="img-user-depo" src="./Imagens/user-boy.png" alt="...">
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         <b>Artur Cabral</b>
@@ -397,7 +460,7 @@
                             <div class="card-body p-5">
                                 <div class="d-flex align-items-center mb-4">
                                     <div class="flex-shrink-0">
-                                        <img class="img-user-depo" src="../Imagens/user-girl.png" alt="...">
+                                        <img class="img-user-depo" src="./Imagens/user-girl.png" alt="...">
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         <b>Sofia Barbi</b>
@@ -415,7 +478,7 @@
                             <div class="card-body p-5">
                                 <div class="d-flex align-items-center mb-4">
                                     <div class="flex-shrink-0">
-                                        <img class="img-user-depo" src="../Imagens/user-boy.png" alt="...">
+                                        <img class="img-user-depo" src="./Imagens/user-boy.png" alt="...">
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         <b>Tiago Lucchesi</b>
