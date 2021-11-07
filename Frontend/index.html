@@ -19,6 +19,8 @@
     <!-- Custom Styles -->
     <link href="./styles/global.css" rel="stylesheet" />
     <link href="./styles/sobre-nos.css" rel="stylesheet" />
+    <link href="./styles/login-signup.css" rel="stylesheet" />
+
 
     <!-- FontAwesome -->
     <script defer src="https://kit.fontawesome.com/719a8c7d66.js" crossorigin="anonymous"></script>
@@ -29,6 +31,8 @@
 
     <!-- JS -->
     <script defer src="./Scripts/wpp-button.js"></script>
+
+    <script defer src="./Scripts/login.js"></script>
 
     <script defer src="./script.js"></script>
 </head>
@@ -59,17 +63,75 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#sobre">Sobre Nós</a>
                     </li>
+                    <li class="nav-item">
+                        <div class="nav-link" id="login-nav-button">Login</div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <main>
+        <!--LOGIN-->
+        <div class="wrapper-login-signup" id="wrapper-login-signup">
+            <div class="login-block" id="login-block">
+                <h2 class="h-popup">LOGIN</h2>
+                <div class="form-block-login">
+                    <form id="login-form" name="email-form" data-name="Email Form" class="form-login">
+                        <input type="email"
+                            class="text-field-login" maxlength="256" name="e-mail" data-name="e-mail"
+                            placeholder="E-mail" id="e-mail-login" required="">
+                        <input type="password"
+                            class="text-field-login" maxlength="256" 
+                            name="senha" data-name="senha" placeholder="Senha"
+                            id="senha-login" required="">
+                        <input type="submit" value="Entrar" 
+                            id="button-login" class="button-login w-button">
+                    </form>
+                </div>
+                <div class="close-login-signup">x</div>
+                <div class="account-status" id="no-account">Não possui conta? Cadastre-se agora.</div>
+            </div>
+            <div class="signup-block" id="signup-block">
+                <h2 class="h-popup">SIGNUP</h2>
+                <div class="form-block-signup">
+                    <form id="signup-form" name="signup-form" data-name="Signup Form" class="form-signup">
+                        <input type="text"
+                            class="text-field-signup half-l" maxlength="256" 
+                            name="nome" data-name="nome"
+                            placeholder="Nome " id="nome-signup" required="">
+                        <input type="text"
+                            class="text-field-signup half-r" maxlength="256" 
+                            name="Sobrenome" data-name="Sobrenome"
+                            placeholder="Sobrenome" id="sobrenome-signup" required="">
+                        <input type="email"
+                            class="text-field-signup" maxlength="256" 
+                            name="e-mail" data-name="e-mail"
+                            placeholder="E-mail" id="e-mail-signup" required="">
+                        <input type="password"
+                            class="text-field-signup" maxlength="256" 
+                            name="senha" data-name="senha" placeholder="Nova senha"
+                            id="senha-signup" required="">
+                        <input type="password"
+                            class="text-field-signup" maxlength="256" 
+                            name="senha-confirmation" data-name="senha-confirmation" 
+                            placeholder="Confirmar senha"
+                            id="senha-confirmation-signup" required="">
+                        <input type="submit" value="Cadastrar"
+                            id="button-signup" class="button-signup">
+                    </form>
+                </div>
+                <div class="close-login-signup">x</div>
+                <div class="account-status" id="with-account">Já possui uma conta?</div>
+            </div>
+            <div class="login-overlay"></div>
+        </div>
+        <!--END LOGIN-->
         <section class="banner">
             <div class="banner-div">
-                <img class="banner-icons" src="../Imagens/dog-banner.png" alt="">
+                <img class="banner-icons" src="./Imagens/dog-banner.png" alt="">
                 <div>Bem-vindo!</div>
-                <img class="banner-icons" src="../Imagens/cat-banner.png" alt="">
+                <img class="banner-icons" src="./Imagens/cat-banner.png" alt="">
             </div>
         </section>
         <section class="sep" id="denunciar">
