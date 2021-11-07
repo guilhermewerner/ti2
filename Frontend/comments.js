@@ -1,12 +1,11 @@
-document.getElementById("testimonial-post").addEventListener("click", function (event) {
+document.getElementById("comment-post").addEventListener("click", function (event) {
     event.preventDefault();
 
-    CreateTestimonial();
+    CreateComment();
 });
 
-function CreateTestimonial() {
-    let name = document.getElementById("testimonial-name").value;
-    let description = document.getElementById("testimonial-content").value;
+function CreateComment() {
+    let content = document.getElementById("comment-content").value;
 
     let headers = new Headers();
     headers.append("Accept", "application/json");
@@ -14,14 +13,9 @@ function CreateTestimonial() {
 
     let body = {
         id: Math.floor(Math.random() * (1000 - 1) + 1),
-        name,
-        description,
         userId: 1,
-        type: "None",
-        location: "Brasil",
-        images: [
-            "linda.png"
-        ],
+        articleId: 1,
+        content,
         date: {
             year: 2012,
             month: 4,
@@ -31,7 +25,7 @@ function CreateTestimonial() {
 
     console.log(body);
 
-    let request = new Request("http://localhost:5555/testimonials", {
+    let request = new Request("http://localhost:5555/comments", {
         method: "POST",
         headers: headers,
         body: JSON.stringify(body),

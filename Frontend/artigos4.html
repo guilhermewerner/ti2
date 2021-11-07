@@ -18,6 +18,9 @@
 
     <!-- Custom Styles -->
     <link href="./styles/global.css" rel="stylesheet" />
+
+    <!-- Page Scripts -->
+    <script defer src="./comments.js"></script>
 </head>
 
 <body>
@@ -230,7 +233,7 @@
                         </div>
                     </div>
                 </div>
-                <form>
+                <form id="comment-form">
                     <div class="comment-form">
                         <div class="d-flex justify-content-start">
                             <div class="me-3 text-muted">
@@ -243,19 +246,19 @@
                             </div>
                             <div class="flex-fill">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                                    <input type="text" class="form-control" id="comment-name"
                                         placeholder="Nos diga seu nome">
                                 </div>
                                 <div class="mb-3">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
-                                        placeholder="Dê seu depoimento"></textarea>
+                                    <textarea class="form-control" id="comment-content" rows="2"
+                                        placeholder="Deixe seu comentário"></textarea>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-dark px-4 py-2">ENVIAR</button>
+                        <button id="comment-post" class="btn btn-dark px-4 py-2">ENVIAR</button>
                     </div>
                 </form>
             </div>
