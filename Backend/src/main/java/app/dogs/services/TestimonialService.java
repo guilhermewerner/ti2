@@ -46,21 +46,40 @@ public class TestimonialService extends BaseService {
     }
 
     public Object create(Request request, Response response) {
-        return "";
+        response.header("Content-Encoding", "UTF-8");
+        response.header("Content-Type", "application/json");
+
+        try {
+            Testimonial testimonial = gson.fromJson(request.body(), Testimonial.class);
+
+            if (!db.insertTestimonial(testimonial)) {
+                throw new Exception("Database error");
+            }
+
+            response.status(200);
+            return "";
+        } catch (Exception e) {
+            response.status(500);
+            return "{ \"error\": \"" + e + "\" }";
+        }
     }
 
     public Object update(Request request, Response response) {
         response.header("Content-Encoding", "UTF-8");
         response.header("Content-Type", "application/json");
 
-        int id = Integer.parseInt(request.params(":id"));
-        Testimonial testimonial = db.getTestimonial(id);
+        try {
+            Testimonial testimonial = gson.fromJson(request.body(), Testimonial.class);
 
-        if (testimonial != null) {
-            return gson.toJson(testimonial);
-        } else {
-            response.status(404);
-            return "{ \"error\": \"Testimonial " + id + " not found.\" }";
+            if (!db.updateTestimonial(testimonial)) {
+                throw new Exception("Database error");
+            }
+
+            response.status(200);
+            return "";
+        } catch (Exception e) {
+            response.status(500);
+            return "{ \"error\": \"" + e + "\" }";
         }
     }
 
@@ -69,13 +88,17 @@ public class TestimonialService extends BaseService {
         response.header("Content-Type", "application/json");
 
         int id = Integer.parseInt(request.params(":id"));
-        Testimonial testimonial = db.getTestimonial(id);
 
-        if (testimonial != null) {
-            return gson.toJson(testimonial);
-        } else {
-            response.status(404);
-            return "{ \"error\": \"Testimonial " + id + " not found.\" }";
+        try {
+            if (!db.deleteTestimonial(id)) {
+                throw new Exception("Database error");
+            }
+
+            response.status(200);
+            return "";
+        } catch (Exception e) {
+            response.status(500);
+            return "{ \"error\": \"" + e + "\" }";
         }
     }
 }

@@ -3,7 +3,7 @@ package app.dogs.models;
 import app.dogs.RandomId;
 
 public class User {
-    public final int id;
+    public int id;
     public String name;
     public String paswordHash;
     public String email;

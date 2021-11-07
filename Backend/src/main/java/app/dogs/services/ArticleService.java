@@ -46,21 +46,40 @@ public class ArticleService extends BaseService {
     }
 
     public Object create(Request request, Response response) {
-        return "";
+        response.header("Content-Encoding", "UTF-8");
+        response.header("Content-Type", "application/json");
+
+        try {
+            Article article = gson.fromJson(request.body(), Article.class);
+
+            if (!db.insertArticle(article)) {
+                throw new Exception("Database error");
+            }
+
+            response.status(200);
+            return "";
+        } catch (Exception e) {
+            response.status(500);
+            return "{ \"error\": \"" + e + "\" }";
+        }
     }
 
     public Object update(Request request, Response response) {
         response.header("Content-Encoding", "UTF-8");
         response.header("Content-Type", "application/json");
 
-        int id = Integer.parseInt(request.params(":id"));
-        Article article = db.getArticle(id);
+        try {
+            Article article = gson.fromJson(request.body(), Article.class);
 
-        if (article != null) {
-            return gson.toJson(article);
-        } else {
-            response.status(404);
-            return "{ \"error\": \"Article " + id + " not found.\" }";
+            if (!db.updateArticle(article)) {
+                throw new Exception("Database error");
+            }
+
+            response.status(200);
+            return "";
+        } catch (Exception e) {
+            response.status(500);
+            return "{ \"error\": \"" + e + "\" }";
         }
     }
 
@@ -69,13 +88,17 @@ public class ArticleService extends BaseService {
         response.header("Content-Type", "application/json");
 
         int id = Integer.parseInt(request.params(":id"));
-        Article article = db.getArticle(id);
 
-        if (article != null) {
-            return gson.toJson(article);
-        } else {
-            response.status(404);
-            return "{ \"error\": \"Article " + id + " not found.\" }";
+        try {
+            if (!db.deleteArticle(id)) {
+                throw new Exception("Database error");
+            }
+
+            response.status(200);
+            return "";
+        } catch (Exception e) {
+            response.status(500);
+            return "{ \"error\": \"" + e + "\" }";
         }
     }
 }

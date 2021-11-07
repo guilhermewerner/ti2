@@ -5,10 +5,10 @@ import java.sql.*;
 import java.time.*;
 
 public class Article {
-    public final int id;
+    public int id;
     public String name;
     public String text;
-    public LocalDateTime date;
+    public LocalDate date;
 
     /**
      * Constructor for use when creating a new article on the database.
@@ -17,7 +17,7 @@ public class Article {
      * @param text
      */
     public Article(String name, String text) {
-        this(RandomId.next(), name, text, LocalDateTime.now());
+        this(RandomId.next(), name, text, LocalDate.now());
     }
 
     /**
@@ -28,11 +28,11 @@ public class Article {
      * @param text
      * @param date
      */
-    public Article(int id, String name, String text, Timestamp date) {
-        this(id, name, text, date.toLocalDateTime());
+    public Article(int id, String name, String text, Date date) {
+        this(id, name, text, date.toLocalDate());
     }
 
-    public Article(int id, String name, String text, LocalDateTime date) {
+    public Article(int id, String name, String text, LocalDate date) {
         this.id = id;
         this.name = name;
         this.text = text;

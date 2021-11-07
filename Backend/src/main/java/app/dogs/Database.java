@@ -63,7 +63,7 @@ public class Database {
 
                 for (int i = 0; rs.next(); i++) {
                     articles[i] = new Article(rs.getInt("id"), rs.getString("name"), rs.getString("text"),
-                            rs.getTimestamp("date"));
+                            rs.getDate("date"));
                 }
             }
 
@@ -83,8 +83,7 @@ public class Database {
             ResultSet rs = st.executeQuery("SELECT * FROM article WHERE article.id = " + id);
 
             if (rs.first()) {
-                article = new Article(rs.getInt("id"), rs.getString("name"), rs.getString("text"),
-                        rs.getTimestamp("date"));
+                article = new Article(rs.getInt("id"), rs.getString("name"), rs.getString("text"), rs.getDate("date"));
             }
 
             st.close();
@@ -159,7 +158,7 @@ public class Database {
 
                 for (int i = 0; rs.next(); i++) {
                     comments[i] = new Comment(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("article_id"),
-                            rs.getString("content"), rs.getTimestamp("date"));
+                            rs.getString("content"), rs.getDate("date"));
                 }
             }
             st.close();
@@ -178,7 +177,7 @@ public class Database {
             ResultSet rs = st.executeQuery("SELECT * FROM comment WHERE comment.id = " + id);
             if (rs.first()) {
                 comment = new Comment(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("article_id"),
-                        rs.getString("content"), rs.getTimestamp("date"));
+                        rs.getString("content"), rs.getDate("date"));
             }
             st.close();
         } catch (SQLException u) {
@@ -227,7 +226,7 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            st.executeUpdate("INSERT INTO testimonial (id, name, description, type, location, images, date) "
+            st.executeUpdate("INSERT INTO testimonial (id, name, description, user_id, type, location, images, date) "
                     + "VALUES (" + testimonial.id + ", '" + testimonial.name + "', '" + testimonial.description + "', '"
                     + testimonial.userId + "', '" + testimonial.type + "', '" + testimonial.location + "', '"
                     + testimonial.images + "', '" + testimonial.date + "');");
@@ -253,9 +252,9 @@ public class Database {
                 rs.beforeFirst();
 
                 for (int i = 0; rs.next(); i++) {
-                    testimonials[i] = new Testimonial(rs.getInt("id"), rs.getString("user_id"),
-                            rs.getString("articleId"), rs.getInt("content"), rs.getString("date"), rs.getString("date"),
-                            rs.getString("date"), rs.getTimestamp("date"));
+                    testimonials[i] = new Testimonial(rs.getInt("id"), rs.getString("name"),
+                            rs.getString("description"), rs.getInt("user_id"), rs.getString("type"),
+                            rs.getString("location"), rs.getString("images"), rs.getDate("date"));
                 }
             }
 
@@ -275,9 +274,9 @@ public class Database {
             ResultSet rs = st.executeQuery("SELECT * FROM testimonial WHERE testimonial.id = " + id);
 
             if (rs.first()) {
-                testimonial = new Testimonial(rs.getInt("id"), rs.getString("user_id"), rs.getString("articleId"),
-                        rs.getInt("content"), rs.getString("date"), rs.getString("date"), rs.getString("date"),
-                        rs.getTimestamp("date"));
+                testimonial = new Testimonial(rs.getInt("id"), rs.getString("name"), rs.getString("description"),
+                        rs.getInt("user_id"), rs.getString("type"), rs.getString("location"), rs.getString("images"),
+                        rs.getDate("date"));
             }
 
             st.close();
@@ -330,8 +329,9 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            st.executeUpdate("INSERT INTO public.user (id, name, pasword_hash, email, phone) " + "VALUES (" + user.id + ", '"
-                    + user.name + "', '" + user.paswordHash + "', '" + user.email + "', '" + user.phone + "');");
+            st.executeUpdate("INSERT INTO public.user (id, name, password_hash, email, phone) " + "VALUES (" + user.id
+                    + ", '" + user.name + "', '" + user.paswordHash + "', '" + user.email + "', '" + user.phone
+                    + "');");
             st.close();
             status = true;
         } catch (SQLException u) {
@@ -354,7 +354,7 @@ public class Database {
                 rs.beforeFirst();
 
                 for (int i = 0; rs.next(); i++) {
-                    users[i] = new User(rs.getInt("id"), rs.getString("name"), rs.getString("pasword_hash"),
+                    users[i] = new User(rs.getInt("id"), rs.getString("name"), rs.getString("password_hash"),
                             rs.getString("email"), rs.getString("phone"));
                 }
             }
@@ -375,7 +375,7 @@ public class Database {
             ResultSet rs = st.executeQuery("SELECT * FROM public.user WHERE public.user.id = " + id);
 
             if (rs.first()) {
-                user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("pasword_hash"),
+                user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("password_hash"),
                         rs.getString("email"), rs.getString("phone"));
             }
 
@@ -392,7 +392,7 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            String sql = "UPDATE public.user SET name = '" + user.name + "', pasword_hash = '" + user.paswordHash
+            String sql = "UPDATE public.user SET name = '" + user.name + "', password_hash = '" + user.paswordHash
                     + "', email = '" + user.email + "', phone = '" + user.phone + "'" + " WHERE id = " + user.id;
             st.executeUpdate(sql);
             st.close();

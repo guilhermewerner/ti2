@@ -5,14 +5,14 @@ import java.time.*;
 import java.sql.*;
 
 public class Testimonial {
-    public final int id;
+    public int id;
     public String name;
     public String description;
     public int userId;
     public TestimonialType type;
     public String location;
     public String[] images;
-    public LocalDateTime date;
+    public LocalDate date;
 
     /**
      * Constructor for use when creating a new testimonial on the database.
@@ -26,7 +26,7 @@ public class Testimonial {
      */
     public Testimonial(String name, String description, int userId, TestimonialType type, String location,
             String[] images) {
-        this(RandomId.next(), name, description, userId, type, location, images, LocalDateTime.now());
+        this(RandomId.next(), name, description, userId, type, location, images, LocalDate.now());
     }
 
     /**
@@ -42,13 +42,13 @@ public class Testimonial {
      * @param date
      */
     public Testimonial(int id, String name, String description, int userId, String type, String location, String images,
-            Timestamp date) {
+            Date date) {
         this(id, name, description, userId, TestimonialType.valueOf(type), location, images.split("</row/>"),
-                date.toLocalDateTime());
+                date.toLocalDate());
     }
 
     public Testimonial(int id, String name, String description, int userId, TestimonialType type, String location,
-            String[] images, LocalDateTime date) {
+            String[] images, LocalDate date) {
         this.id = id;
         this.name = name;
         this.description = description;

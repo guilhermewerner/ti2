@@ -14,28 +14,28 @@ public class Application {
 
         port(5555);
 
-        get("/articles", (request, response) -> articleService.list(request, response));
-        get("/articles/:id", (request, response) -> articleService.get(request, response));
-        post("/articles", (request, response) -> articleService.create(request, response));
-        put("/articles/:id", (request, response) -> articleService.update(request, response));
-        delete("/articles/:id", (request, response) -> articleService.delete(request, response));
+        get("/articles", "application/json", (request, response) -> articleService.list(request, response));
+        get("/articles/:id", "application/json", (request, response) -> articleService.get(request, response));
+        post("/articles", "application/json", (request, response) -> articleService.create(request, response));
+        put("/articles/:id", "application/json", (request, response) -> articleService.update(request, response));
+        delete("/articles/:id", "application/json", (request, response) -> articleService.delete(request, response));
 
-        get("/comments", (request, response) -> commentService.list(request, response));
-        get("/comments/:id", (request, response) -> commentService.get(request, response));
-        post("/comments", (request, response) -> commentService.create(request, response));
-        put("/comments/:id", (request, response) -> commentService.update(request, response));
-        delete("/comments/:id", (request, response) -> commentService.delete(request, response));
+        get("/comments", "application/json", (request, response) -> commentService.list(request, response));
+        get("/comments/:id", "application/json", (request, response) -> commentService.get(request, response));
+        post("/comments", "application/json", (request, response) -> commentService.create(request, response));
+        put("/comments/:id", "application/json", (request, response) -> commentService.update(request, response));
+        delete("/comments/:id", "application/json", (request, response) -> commentService.delete(request, response));
 
-        get("/testimonials", (request, response) -> testimonialService.list(request, response));
-        get("/testimonials/:id", (request, response) -> testimonialService.get(request, response));
-        post("/testimonials", (request, response) -> testimonialService.create(request, response));
-        put("/testimonials/:id", (request, response) -> testimonialService.update(request, response));
-        delete("/testimonials/:id", (request, response) -> testimonialService.delete(request, response));
+        get("/testimonials", "application/json", (request, response) -> testimonialService.list(request, response));
+        get("/testimonials/:id", "application/json", (request, response) -> testimonialService.get(request, response));
+        post("/testimonials", "application/json", (request, response) -> testimonialService.create(request, response));
+        put("/testimonials/:id", "application/json", (request, response) -> testimonialService.update(request, response));
+        delete("/testimonials/:id", "application/json", (request, response) -> testimonialService.delete(request, response));
 
-        get("/users", (request, response) -> userService.list(request, response));
-        get("/users/:id", (request, response) -> userService.get(request, response));
-        post("/users", (request, response) -> userService.create(request, response));
-        put("/users/:id", (request, response) -> userService.update(request, response));
-        delete("/users/:id", (request, response) -> userService.delete(request, response));
+        get("/users", "application/json", (request, response) -> userService.list(request, response));
+        get("/users/:id", "application/json", (request, response) -> userService.get(request, response));
+        post("/users", "application/json", (request, response) -> userService.create(request, response));
+        put("/users/:id", "application/json", (request, response) -> userService.update(request, response));
+        delete("/users/:id", "application/json", (request, response) -> userService.delete(request, response));
     }
 }

@@ -46,21 +46,40 @@ public class UserService extends BaseService {
     }
 
     public Object create(Request request, Response response) {
-        return "";
+        response.header("Content-Encoding", "UTF-8");
+        response.header("Content-Type", "application/json");
+
+        try {
+            User user = gson.fromJson(request.body(), User.class);
+
+            if (!db.insertUser(user)) {
+                throw new Exception("Database error");
+            }
+
+            response.status(200);
+            return "";
+        } catch (Exception e) {
+            response.status(500);
+            return "{ \"error\": \"" + e + "\" }";
+        }
     }
 
     public Object update(Request request, Response response) {
         response.header("Content-Encoding", "UTF-8");
         response.header("Content-Type", "application/json");
 
-        int id = Integer.parseInt(request.params(":id"));
-        User user = db.getUser(id);
+        try {
+            User user = gson.fromJson(request.body(), User.class);
 
-        if (user != null) {
-            return gson.toJson(user);
-        } else {
-            response.status(404);
-            return "{ \"error\": \"User " + id + " not found.\" }";
+            if (!db.updateUser(user)) {
+                throw new Exception("Database error");
+            }
+
+            response.status(200);
+            return "";
+        } catch (Exception e) {
+            response.status(500);
+            return "{ \"error\": \"" + e + "\" }";
         }
     }
 
@@ -69,13 +88,17 @@ public class UserService extends BaseService {
         response.header("Content-Type", "application/json");
 
         int id = Integer.parseInt(request.params(":id"));
-        User user = db.getUser(id);
 
-        if (user != null) {
-            return gson.toJson(user);
-        } else {
-            response.status(404);
-            return "{ \"error\": \"User " + id + " not found.\" }";
+        try {
+            if (!db.deleteUser(id)) {
+                throw new Exception("Database error");
+            }
+
+            response.status(200);
+            return "";
+        } catch (Exception e) {
+            response.status(500);
+            return "{ \"error\": \"" + e + "\" }";
         }
     }
 }

@@ -1,0 +1,37 @@
+// users
+
+GET http://localhost:5555/users
+
+###
+
+GET http://localhost:5555/users/1
+
+###
+
+POST http://localhost:5555/users
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Guilherme",
+    "paswordHash": "123",
+    "email": "Blabla blabla",
+    "phone": "1234567890"
+}
+
+###
+
+PUT http://localhost:5555/users/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Guilherme Werner",
+    "paswordHash": "123",
+    "email": "Blabla blabla",
+    "phone": "1234567890"
+}
+
+###
+
+DELETE http://localhost:5555/users/1
