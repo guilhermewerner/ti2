@@ -50,7 +50,7 @@ function Favoritar(id) {
 }
 
 function Desfavoritar(id) {
-    console.log("ola entrei");
+    //console.log("ola entrei");
     id = id.substring(10);
     console.log(id);
     let starCompleta = document.getElementById(`favoritado${id}`);
