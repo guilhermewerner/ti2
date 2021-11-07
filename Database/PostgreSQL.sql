@@ -11,6 +11,7 @@ CREATE TABLE public.article (
 	"id" int NOT NULL,
 	"name" varchar NOT NULL,
 	"text" varchar NOT NULL,
+	"url" varchar NULL,
 	"date" date NULL,
 	CONSTRAINT article_pk PRIMARY KEY (id)
 );
