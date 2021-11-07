@@ -83,3 +83,5 @@ function exibirFavoritados() {
 onload = () => {
     exibirFavoritados();
 };
+
+// Desativado
