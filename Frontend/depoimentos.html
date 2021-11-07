@@ -18,6 +18,9 @@
 
     <!-- Custom Styles -->
     <link href="./styles/global.css" rel="stylesheet" />
+
+    <!-- Page Scripts -->
+    <script defer src="./depoimentos.js"></script>
 </head>
 
 <body>
@@ -73,7 +76,7 @@
                         tincidunt. Proin eget tortor risus.
                     </p>
                 </div>
-                <form>
+                <form id="testimonial-form">
                     <div class="comment-form">
                         <div class="d-flex justify-content-start">
                             <div class="me-3 text-muted">
@@ -86,11 +89,11 @@
                             </div>
                             <div class="flex-fill">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                                    <input type="text" class="form-control" id="testimonial-name"
                                         placeholder="Nos diga seu nome">
                                 </div>
                                 <div class="mb-3">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+                                    <textarea class="form-control" id="testimonial-content" rows="2"
                                         placeholder="Dê seu depoimento"></textarea>
                                 </div>
                             </div>
@@ -98,13 +101,12 @@
 
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-dark px-4 py-2">ENVIAR</button>
+                        <button id="testimonial-post" class="btn btn-dark px-4 py-2">ENVIAR</button>
                     </div>
                 </form>
             </div>
         </section>
     </main>
-
 
     <footer class="footer">
         <div class="container">

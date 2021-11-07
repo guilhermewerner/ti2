@@ -229,7 +229,7 @@ public class Database {
             st.executeUpdate("INSERT INTO testimonial (id, name, description, user_id, type, location, images, date) "
                     + "VALUES (" + testimonial.id + ", '" + testimonial.name + "', '" + testimonial.description + "', '"
                     + testimonial.userId + "', '" + testimonial.type + "', '" + testimonial.location + "', '"
-                    + testimonial.images + "', '" + testimonial.date + "');");
+                    + testimonial.getImages() + "', '" + testimonial.date + "');");
             st.close();
             status = true;
         } catch (SQLException u) {

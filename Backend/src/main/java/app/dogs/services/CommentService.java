@@ -57,7 +57,7 @@ public class CommentService extends BaseService {
             }
 
             response.status(200);
-            return "";
+            return "{ \"status\": \"success\" }";
         } catch (Exception e) {
             response.status(500);
             return "{ \"error\": \"" + e + "\" }";
@@ -76,7 +76,7 @@ public class CommentService extends BaseService {
             }
 
             response.status(200);
-            return "";
+            return "{ \"status\": \"success\" }";
         } catch (Exception e) {
             response.status(500);
             return "{ \"error\": \"" + e + "\" }";
@@ -95,7 +95,7 @@ public class CommentService extends BaseService {
             }
 
             response.status(200);
-            return "";
+            return "{ \"status\": \"success\" }";
         } catch (Exception e) {
             response.status(500);
             return "{ \"error\": \"" + e + "\" }";
