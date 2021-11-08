@@ -50,10 +50,8 @@ public class Application {
         get("/testimonials", "application/json", (request, response) -> testimonialService.list(request, response));
         get("/testimonials/:id", "application/json", (request, response) -> testimonialService.get(request, response));
         post("/testimonials", "application/json", (request, response) -> testimonialService.create(request, response));
-        put("/testimonials/:id", "application/json",
-                (request, response) -> testimonialService.update(request, response));
-        delete("/testimonials/:id", "application/json",
-                (request, response) -> testimonialService.delete(request, response));
+        put("/testimonials/:id", "application/json", (request, response) -> testimonialService.update(request, response));
+        delete("/testimonials/:id", "application/json", (request, response) -> testimonialService.delete(request, response));
 
         get("/users", "application/json", (request, response) -> userService.list(request, response));
         get("/users/:id", "application/json", (request, response) -> userService.get(request, response));
