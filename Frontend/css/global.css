@@ -252,6 +252,7 @@ h5.card-title {
     justify-content: center;
     align-items: center;
     background: linear-gradient(90deg, #F7F6FD,#F0EEF8);
+    /*background: #e6e2f8;*/
 }
 
 .page-head {
