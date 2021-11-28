@@ -4,6 +4,7 @@
 <head>
     <!-- Required Meta -->
     <meta charset='utf-8' />
+    <link class="favicon" rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
     <title>Maus-Tratos aos Animais</title>
 
@@ -26,7 +27,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm p-4">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Logo</a>
+            <a class="navbar-brand" href="index.html">
+                <img class="logo" src="./img/logo.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -55,25 +57,37 @@
     </nav>
 
     <main>
-        <section class="jombo">
+      <!--  <section class="jombo">
             <div class="d-flex justify-content-center">
                 <div class="d-flex page-head text-center">
-                    <h1 class="my-4">Dê seu depoimento</h1>
+                    <img class="imagemSecundaria" src="./img/cachorro3.jpg" alt="">
+                    <h1 class="tituloSecundario">Dê seu depoimento</h1>
                     <h6 class="mt-4">Home → Dê seu depoimento</h6>
+                    <img class="imagemSecundaria" src="./img/cachorro3.jpg" alt="">
                 </div>
             </div>
+        </section> -->
+
+        <!--mudança na section-->
+        <section class="jombo">
+            <div class="banner-div">
+                <img class="imagemSecundaria" src="./img/coelho1.jpg" alt="">
+                &nbsp&nbsp&nbsp
+                <div>
+                    <h1 class="tituloSecundario">Dê seu depoimento</h1>
+                    <h6 class="mt-4">&nbsp Home → Dê seu depoimento</h6>
+                </div>
+                &nbsp&nbsp&nbsp
+                <img class="imagemSecundaria" src="img/gatinho.jpg" alt="">
+            </div>
         </section>
+
         <section class="sep blog-section">
             <div class="container">
                 <div class="mb-5 pb-2">
                     <h2>Condições para aprovação de depoimento</h2>
                     <p>
-                        Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Sed porttitor lectus
-                        nibh. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar
-                        a.
-                        Curabitur aliquet quam id dui posuere blandit. Proin eget tortor risus. Nulla porttitor
-                        accumsan
-                        tincidunt. Proin eget tortor risus.
+                        Seu depoimento não será validado caso haja violação de conformidade ou seja inapropriado.
                     </p>
                 </div>
                 <form id="testimonial-form">
@@ -112,7 +126,9 @@
         <div class="container">
             <div class="footer-flex pt-4">
                 <div class="copyright-notice">
-                    <h1 class="display-6 footer-logo">LOGO</h1>
+                    <h1 class="display-6 footer-logo">
+                        <img class="logoFooter" src="./img/logo.png" alt="">
+                    </h1>
                 </div>
                 <div class="d-none d-md-block">
                     <ul class="nav">
@@ -135,8 +151,8 @@
                 </div>
             </div>
             <div class="footer-flex pt-5">
-                <span class="text-muted small">Desenvolvido por</span>
-                <span class="text-muted small">Copyright</span>
+                <span class="text-muted small">Desenvolvido por: Alunos da PUC Minas</span>
+                <span class="text-muted small">Copyright © PUC Minas 2021</span>
             </div>
         </div>
     </footer>
