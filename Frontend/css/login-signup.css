@@ -12,7 +12,7 @@ input {
 }
 
 input:focus {
-    outline: none!important;
+    outline: none !important;
 }
 
 .text-field-signup {
@@ -333,6 +333,7 @@ input:focus {
     .login-block {
         width: 80vw;
     }
+
     .signup-block {
         width: 80vw;
     }
@@ -342,6 +343,7 @@ input:focus {
     .login-block {
         width: 90vw;
     }
+
     .signup-block {
         width: 90vw;
     }
