@@ -330,7 +330,7 @@ public class Database {
         try {
             Statement st = connection.createStatement();
             st.executeUpdate("INSERT INTO public.user (id, name, password_hash, email, phone) " + "VALUES (" + user.id
-                    + ", '" + user.name + "', '" + user.paswordHash + "', '" + user.email + "', '" + user.phone
+                    + ", '" + user.name + "', '" + user.passwordHash + "', '" + user.email + "', '" + user.phone
                     + "');");
             st.close();
             status = true;
@@ -392,7 +392,7 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            String sql = "UPDATE public.user SET name = '" + user.name + "', password_hash = '" + user.paswordHash
+            String sql = "UPDATE public.user SET name = '" + user.name + "', password_hash = '" + user.passwordHash
                     + "', email = '" + user.email + "', phone = '" + user.phone + "'" + " WHERE id = " + user.id;
             st.executeUpdate(sql);
             st.close();
