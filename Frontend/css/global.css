@@ -24,7 +24,9 @@
     font-weight: 650;
     margin: 0;
     padding: 0;
-    color: #239c98 !important;
+    color: black;
+    /*color: #239c98 !important;*/
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .navbar-nav {
@@ -112,6 +114,13 @@
     font-size: 18px;
     color: whitesmoke;
 }
+
+/*.btn {
+background-color:#BEB3EB;
+}
+.btn:hover{
+    background-color:#239c98;
+}*/
 
 .btn-light-2 {
     background-color: transparent;
@@ -230,6 +239,7 @@ h5.card-title {
     .channels-flex {
         flex-direction: row;
     }
+
     .container-blog {
         width: 95vw;
     }
@@ -244,7 +254,11 @@ h5.card-title {
 .jombo {
     width: 100%;
     height: 330px;
-    background: #ebebeb;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e6e2f8;
 }
 
 .page-head {
@@ -318,10 +332,35 @@ footer {
     display: none;
 }
 
+.logo {
+    width: 25%;
+    border: 0%;
+    margin: 0%;
+}
+
+.logoFooter {
+    width: 20%;
+}
+
+
+
+.tituloSecundario {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+
+    /*roxo*/
+    color: #BEB3EB;
+}
+
+.mt-4 {
+    text-align: center;
+}
+
 @media screen and (max-width: 600px) {
     .container-blog {
         width: 90vw;
     }
+
     .about-card {
         height: 300px;
         border-top-left-radius: 0;
