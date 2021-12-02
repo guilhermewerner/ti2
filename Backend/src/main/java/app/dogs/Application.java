@@ -5,6 +5,7 @@ import app.dogs.services.*;
 
 public class Application {
     private static ArticleService articleService = new ArticleService();
+    private static AuthService authService = new AuthService();
     private static CommentService commentService = new CommentService();
     private static TestimonialService testimonialService = new TestimonialService();
     private static UserService userService = new UserService();
@@ -34,6 +35,9 @@ public class Application {
             response.header("Access-Control-Allow-Headers", "*");
             response.type("application/json");
         });
+
+        post("/login", "application/json", (request, response) -> authService.login(request, response));
+        post("/register", "application/json", (request, response) -> userService.create(request, response));
 
         get("/articles", "application/json", (request, response) -> articleService.list(request, response));
         get("/articles/:id", "application/json", (request, response) -> articleService.get(request, response));
