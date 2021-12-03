@@ -3,6 +3,7 @@ package app.dogs.services;
 import java.util.ArrayList;
 import app.dogs.Database;
 import app.dogs.models.Testimonial;
+import app.dogs.models.TestimonialType;
 import spark.Request;
 import spark.Response;
 
@@ -51,6 +52,27 @@ public class TestimonialService extends BaseService {
 
         try {
             Testimonial testimonial = gson.fromJson(request.body(), Testimonial.class);
+
+            String desc = testimonial.description;
+
+            if (desc.contains("abandono") || desc.contains("amandonado")) {
+                testimonial.type = TestimonialType.Abandonment;
+            } else if (desc.contains("bateu") || desc.contains("agrediu")) {
+                testimonial.type = TestimonialType.Aggression;
+            } else if (desc.contains("preso") || desc.contains("acorrentado") || desc.contains("corrente")) {
+                testimonial.type = TestimonialType.Chaining;
+            } else if (desc.contains("higiene") || desc.contains("abertado")) {
+                testimonial.type = TestimonialType.Hygiene;
+            } else if (desc.contains("sol") || desc.contains("chuva") || desc.contains("relento")
+                    || desc.contains("frio")) {
+                testimonial.type = TestimonialType.Environment;
+            } else if (desc.contains("alimento") || desc.contains("alimentar")) {
+                testimonial.type = TestimonialType.Hungry;
+            } else if (desc.contains("ferido") || desc.contains("doente")) {
+                testimonial.type = TestimonialType.Sick;
+            } else {
+                testimonial.type = TestimonialType.None;
+            }
 
             if (!db.insertTestimonial(testimonial)) {
                 throw new Exception("Database error");
