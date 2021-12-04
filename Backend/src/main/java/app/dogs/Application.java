@@ -4,9 +4,7 @@ import static spark.Spark.*;
 import app.dogs.services.*;
 
 public class Application {
-    private static ArticleService articleService = new ArticleService();
     private static AuthService authService = new AuthService();
-    private static CommentService commentService = new CommentService();
     private static TestimonialService testimonialService = new TestimonialService();
     private static UserService userService = new UserService();
 
@@ -38,18 +36,6 @@ public class Application {
 
         post("/login", "application/json", (request, response) -> authService.login(request, response));
         post("/register", "application/json", (request, response) -> userService.create(request, response));
-
-        get("/articles", "application/json", (request, response) -> articleService.list(request, response));
-        get("/articles/:id", "application/json", (request, response) -> articleService.get(request, response));
-        post("/articles", "application/json", (request, response) -> articleService.create(request, response));
-        put("/articles/:id", "application/json", (request, response) -> articleService.update(request, response));
-        delete("/articles/:id", "application/json", (request, response) -> articleService.delete(request, response));
-
-        get("/comments", "application/json", (request, response) -> commentService.list(request, response));
-        get("/comments/:id", "application/json", (request, response) -> commentService.get(request, response));
-        post("/comments", "application/json", (request, response) -> commentService.create(request, response));
-        put("/comments/:id", "application/json", (request, response) -> commentService.update(request, response));
-        delete("/comments/:id", "application/json", (request, response) -> commentService.delete(request, response));
 
         get("/testimonials", "application/json", (request, response) -> testimonialService.list(request, response));
         get("/testimonials/:id", "application/json", (request, response) -> testimonialService.get(request, response));

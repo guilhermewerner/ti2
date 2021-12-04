@@ -7,26 +7,6 @@ CREATE TABLE public.user (
 	CONSTRAINT user_pk PRIMARY KEY (id)
 );
 
-CREATE TABLE public.article (
-	"id" int NOT NULL,
-	"name" varchar NOT NULL,
-	"text" varchar NOT NULL,
-	"url" varchar NULL,
-	"date" date NULL,
-	CONSTRAINT article_pk PRIMARY KEY (id)
-);
-
-CREATE TABLE public."comment" (
-	"id" int NOT NULL,
-	"user_id" int NOT NULL,
-	"article_id" int NOT NULL,
-	"content" varchar NOT NULL,
-	"date" date NULL,
-	CONSTRAINT comment_pk PRIMARY KEY (id),
-	CONSTRAINT comment_user_fk FOREIGN KEY (user_id) REFERENCES public.user(id) ON DELETE CASCADE ON UPDATE CASCADE,
-	CONSTRAINT comment_article_fk FOREIGN KEY (article_id) REFERENCES public.article(id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
 CREATE TABLE public.testimonial (
 	"id" int NOT NULL,
 	"name" varchar NOT NULL,
