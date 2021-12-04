@@ -387,6 +387,26 @@ public class Database {
         return user;
     }
 
+    public User getUserByName(String name) {
+        User user = null;
+
+        try {
+            Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = st.executeQuery("SELECT * FROM public.user WHERE public.user.name = " + name);
+
+            if (rs.first()) {
+                user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("password_hash"),
+                        rs.getString("email"), rs.getString("phone"));
+            }
+
+            st.close();
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+
+        return user;
+    }
+
     public boolean updateUser(User user) {
         boolean status = false;
 
