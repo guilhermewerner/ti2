@@ -38,8 +38,11 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            st.executeUpdate("INSERT INTO article (id, name, text, date) " + "VALUES (" + article.id + ", '"
-                    + article.name + "', '" + article.text + "', '" + article.date + "');");
+            st.executeUpdate("INSERT INTO article (id, name, text, date) " + "VALUES ("
+                    + article.id + ", '"
+                    + article.name + "', '"
+                    + article.text + "', '"
+                    + article.date + "');");
             st.close();
             status = true;
         } catch (SQLException u) {
@@ -133,8 +136,11 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            st.executeUpdate("INSERT INTO comment (id, user_id, article_id, content, date) " + "VALUES (" + comment.id
-                    + ", '" + comment.userId + "', '" + comment.articleId + "', '" + comment.content + "', '"
+            st.executeUpdate("INSERT INTO comment (id, user_id, article_id, content, date) " + "VALUES ("
+                    + comment.id + ", '"
+                    + comment.userId + "', '"
+                    + comment.articleId + "', '"
+                    + comment.content + "', '"
                     + comment.date + "');");
             st.close();
             status = true;
@@ -228,12 +234,16 @@ public class Database {
             Statement st = connection.createStatement();
             st.executeUpdate(
                     "INSERT INTO testimonial (id, name, description, user_id, type, location, images, recommendations, date) "
-                            + "VALUES (" + testimonial.id + ", '" + testimonial.name + "', '" + testimonial.description
-                            + "', '"
-                            + testimonial.userId + "', '" + testimonial.type + "', '" + testimonial.location + "', '"
-                            + testimonial.getImages() + "', '" + testimonial.getRecommendations() + "', '"
-                            + testimonial.date
-                            + "');");
+                            + "VALUES ("
+                            + testimonial.id + ", '"
+                            + testimonial.name + "', '"
+                            + testimonial.description + "', '"
+                            + testimonial.userId + "', '"
+                            + testimonial.type + "', '"
+                            + testimonial.location + "', '"
+                            + testimonial.getImages() + "', '"
+                            + testimonial.getRecommendations() + "', '"
+                            + testimonial.date + "');");
             st.close();
             status = true;
         } catch (SQLException u) {
@@ -298,11 +308,15 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            String sql = "UPDATE testimonial SET name = '" + testimonial.name + "', description = '"
-                    + testimonial.description + "', user_id = '" + testimonial.userId + "', type = '"
-                    + testimonial.type.toString() + "', location = '" + testimonial.location + "', images = '"
-                    + testimonial.getImages() + "', recommendations = '" + testimonial.getRecommendations() + "', date = '"
-                    + testimonial.date + "'" + " WHERE id = "
+            String sql = "UPDATE testimonial SET name = '"
+                    + testimonial.name + "', description = '"
+                    + testimonial.description + "', user_id = '"
+                    + testimonial.userId + "', type = '"
+                    + testimonial.type.toString() + "', location = '"
+                    + testimonial.location + "', images = '"
+                    + testimonial.getImages() + "', recommendations = '"
+                    + testimonial.getRecommendations() + "', date = '"
+                    + testimonial.date + "' WHERE id = "
                     + testimonial.id;
             st.executeUpdate(sql);
             st.close();
