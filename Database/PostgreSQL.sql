@@ -35,6 +35,7 @@ CREATE TABLE public.testimonial (
 	"type" varchar NOT NULL,
 	"location" varchar NULL,
 	"images" varchar NULL,
+	"recommendations" varchar NULL,
 	"date" date NULL,
 	CONSTRAINT testimonial_pk PRIMARY KEY (id),
 	CONSTRAINT testimonial_user_fk FOREIGN KEY (user_id) REFERENCES public.user(id) ON DELETE CASCADE ON UPDATE CASCADE
