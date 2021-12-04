@@ -18,7 +18,7 @@ function exibeNoticias() {
                         ${noticia.description}
                     </p>
                     <div class="d-flex justify-content-end">
-                        <a href="${noticia.url}" class="card-link text-muted">Leia Mais</a>
+                        <a class="card-link text-muted" href="${noticia.url}" target="_blank">Leia Mais</a>
                     </div>
                     <div class="d-flex justify-content-space-between" >
                         <div class="facebook-button me-2">

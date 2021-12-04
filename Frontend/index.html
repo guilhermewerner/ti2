@@ -22,7 +22,6 @@
     <link href="./css/sobre-nos.css" rel="stylesheet" />
     <link href="./css/login-signup.css" rel="stylesheet" />
 
-
     <!-- FontAwesome -->
     <script defer src="https://kit.fontawesome.com/719a8c7d66.js" crossorigin="anonymous"></script>
 
@@ -30,13 +29,10 @@
     <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <!-- JS -->
+    <!-- JavaScript -->
     <script defer src="./js/wpp-button.js"></script>
-
     <script defer src="./js/login.js"></script>
-
-    <script defer src="./js/blog.js"></script>
-
+    <script defer src="./js/featured.js"></script>
 </head>
 
 <body>
@@ -57,9 +53,6 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#denunciar">Denunciar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="blog.html">Blog</a>
@@ -280,129 +273,7 @@
             </div>
             <div class="container-blog">
                 <div class="row" id="row-blog">
-                    <div class="col-lg col-sm mb-3">
-                        <div class="card shadow-sm">
-                            <img width="300" height="300"
-                                src="https://www.rbsdirect.com.br/filestore/4/1/9/1/4_d6faf78eb8df45d/41914_559bce7bc226835.jpg?w=700"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Cães resgatados de maus-tratos estão disponíveis para adoção
-                                    em Nova Petrópolis</h5>
-                                <p class="card-text article-text">
-                                    Eles foram apreendidos em uma operação em outubro de 2020. Todos estão sadios e
-                                    castrados
-                                </p>
-                                <div class="d-flex justify-content-end">
-                                    <a href="artigos3.html" class="card-link text-muted">Leia Mais</a>
-                                </div>
-                                <div class="d-flex justify-content-space-between">
-                                    <div class="facebook-button me-2">
-                                        <a
-                                            href="https://www.facebook.com/sharer/sharer.php?u=https://gauchazh.clicrbs.com.br/pioneiro/geral/noticia/2021/05/caes-resgatados-de-maus-tratos-estao-disponiveis-para-adocao-em-nova-petropolis-ckoeq8ys500bf018m5cdxeptj.html">
-                                            <img width="25" height="25"
-                                                src="https://ayltoninacio.com.br/img/s/18w50.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="linkedin-button me-2">
-                                        <a
-                                            href="https://www.linkedin.com/shareArticle?mini=true&url=https://gauchazh.clicrbs.com.br/pioneiro/geral/noticia/2021/05/caes-resgatados-de-maus-tratos-estao-disponiveis-para-adocao-em-nova-petropolis-ckoeq8ys500bf018m5cdxeptj.html">
-                                            <img width="25" height="25"
-                                                src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="justify-content-end">
-                                        <button class="favorite-button" id="0" onclick="Favoritar(this.id)"><i
-                                                class="far fa-star"></i></button>
-                                        <button class="favorite-button-active" id="favoritado0"
-                                            onclick="Desfavoritar(this.id)" class="desaparecer"><i
-                                                class="fas fa-star"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg col-sm mb-3">
-                        <div class="card">
-                            <img width="300" height="300"
-                                src="https://files.nsctotal.com.br/s3fs-public/styles/teaser_image_style/public/graphql-upload-files/maus%20tratos_3.jpg?WdWyCoJpYJA.Fob.JLQAuRDBadGPMY.s&itok=25pHAXFg&width=750"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Multa por maus-tratos a animais vai aumentar em SC</h5>
-                                <p class="card-text article-text">
-                                    O governador Carlos Moisés vai sancionar nesta segunda-feira (17) uma nova lei
-                                    estadual que aumenta a multa...
-                                </p>
-                                <div class="d-flex justify-content-end">
-                                    <a href="artigos2.html" class="card-link text-muted">Leia Mais</a>
-                                </div>
-
-
-                                <div class="d-flex">
-                                    <div class="facebook-button me-2">
-                                        <a
-                                            href="https://www.facebook.com/sharer/sharer.php?u=https://www.nsctotal.com.br/colunistas/raphael-faraco/multa-por-maus-tratos-a-animais-vai-aumentar-em-sc">
-                                            <img width="25" height="25"
-                                                src="https://ayltoninacio.com.br/img/s/18w50.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="linkedin-button me-2">
-                                        <a
-                                            href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.nsctotal.com.br/colunistas/raphael-faraco/multa-por-maus-tratos-a-animais-vai-aumentar-em-sc">
-                                            <img width="25" height="25"
-                                                src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="justify-content-end">
-                                        <button class="favorite-button" id="1" onclick="Favoritar(this.id)"><i
-                                                class="far fa-star"></i></button>
-                                        <button class="favorite-button-active" id="favoritado1"
-                                            onclick="Desfavoritar(this.id)" class="desaparecer"><i
-                                                class="fas fa-star"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg col-sm mb-3">
-                        <div class="card">
-                            <img width="300" height="300"
-                                src="https://s2.glbimg.com/3S05wkuSIS1PM5BuCtrLSG8vEL8=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/M/f/YSoQEfQW2n7KootFdvAg/dog-3071334-1920.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Operação Pará Pet fiscaliza casos de maus-tratos contra
-                                    animais na região metropolitana de Belém</h5>
-                                <p class="card-text article-text">
-                                    Operação foi deflagrada nesta sexta-feira, 30 pela Polícia Civil.
-                                </p>
-                                <div class="d-flex justify-content-end">
-                                    <a href="artigos4.html" class="card-link text-muted">Leia Mais</a>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="facebook-button me-2">
-                                        <a
-                                            href="https://www.facebook.com/sharer/sharer.php?u=https://g1.globo.com/pr/norte-noroeste/noticia/2021/05/05/londrina-adota-formulario-online-para-denuncias-de-maus-tratos-a-animais.ghtml">
-                                            <img width="25" height="25"
-                                                src="https://ayltoninacio.com.br/img/s/18w50.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="linkedin-button me-2">
-                                        <a
-                                            href="https://www.linkedin.com/shareArticle?mini=true&url=https://g1.globo.com/pr/norte-noroeste/noticia/2021/05/05/londrina-adota-formulario-online-para-denuncias-de-maus-tratos-a-animais.ghtml">
-                                            <img width="25" height="25"
-                                                src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="justify-content-end">
-                                        <button class="favorite-button" id="2" onclick="Favoritar(this.id)"><i
-                                                class="far fa-star"></i></button>
-                                        <button class="favorite-button-active" id="favoritado2"
-                                            onclick="Desfavoritar(this.id)" class="desaparecer"><i
-                                                class="fas fa-star"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- DINAMIC LOADED -->
                 </div>
                 <div class="d-flex justify-content-center py-5">
                     <button type="button" class="btn btn-secondary">Veja mais</button>
@@ -504,9 +375,6 @@
                             <a class="nav-link text-muted small active" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-muted small" href="#denunciar">Denunciar</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-muted small" href="blog.html">Blog</a>
                         </li>
                         <li class="nav-item">
@@ -518,7 +386,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-flex pt-5">
+            <div class="footer-flex pt-3">
                 <span class="text-muted small">Desenvolvido por: alunos da PUC Minas</span>
                 <span class="text-muted small">Copyright © PUC Minas 2021</span>
             </div>

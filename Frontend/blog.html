@@ -19,6 +19,13 @@
 
     <!-- Custom Styles -->
     <link href="./css/global.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- JavaScript -->
+    <script defer src="./js/articles.js"></script>
 </head>
 
 <body>
@@ -37,9 +44,6 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="denuncias.html">Denunciar</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="blog.html">Blog</a>
                     </li>
                     <li class="nav-item">
@@ -54,15 +58,6 @@
     </nav>
 
     <main>
-        <!--<section class="jombo">
-            <div class="d-flex justify-content-center">
-                <div class="d-flex page-head text-center">
-                    <h1 class="tituloSecundario">Blog</h1>
-                    <h6 class="mt-4">Home → Blog</h6>
-                </div>
-            </div>
-        </section> -->
-
         <section class="jombo">
             <div class="banner-div">
                 <div>
@@ -70,131 +65,15 @@
                     <h6 class="mt-4">Home → Blog</h6>
                 </div>
             </div>
-
         </section>
         <section class="sep blog-section">
             <div class="container">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Notícias</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="artigos2.html">Artigos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tutoriais</a>
-                    </li>
-                </ul>
-                <div class="row my-5">
-                    <div class="col-lg-8 mb-3">
-                        <div class="row">
-                            <div class="col-md-6 mb-5">
-                                <div class="card">
-                                    <img src="img/gatinho3.jpg" class="card-img-top article-image" alt="...">
-                                    <span class="badge bg-secondary article-badge">Secondary</span>
-                                    </img>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text article-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Suspendisse varius enim in eros elementum tristique. Duis cursus, mi
-                                            quis
-                                            viverra
-                                        </p>
-                                        <div class="d-flex justify-content-end">
-                                            <a href="#" class="card-link text-muted">Leia Mais</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-5">
-                                <div class="card">
-                                    <img src="img/cachorros.jpg" class="card-img-top article-image" alt="...">
-                                    <span class="badge bg-secondary article-badge">Secondary</span>
-                                    </img>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text article-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Suspendisse varius enim in eros elementum tristique. Duis cursus, mi
-                                            quis
-                                            viverra
-                                        </p>
-                                        <div class="d-flex justify-content-end">
-                                            <a href="#" class="card-link text-muted">Leia Mais</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-5">
-                                <div class="card">
-                                    <img src="img/coelho.jpg" class="card-img-top article-image" alt="...">
-                                    <span class="badge bg-secondary article-badge">Secondary</span>
-                                    </img>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text article-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Suspendisse varius enim in eros elementum tristique. Duis cursus, mi
-                                            quis
-                                            viverra
-                                        </p>
-                                        <div class="d-flex justify-content-end">
-                                            <a href="#" class="card-link text-muted">Leia Mais</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-5">
-                                <div class="card">
-                                    <img src="img/cachorro2.jpg" class="card-img-top article-image" alt="...">
-                                    <span class="badge bg-secondary article-badge">Secondary</span>
-                                    </img>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text article-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Suspendisse varius enim in eros elementum tristique. Duis cursus, mi
-                                            quis
-                                            viverra
-                                        </p>
-                                        <div class="d-flex justify-content-end">
-                                            <a href="#" class="card-link text-muted">Leia Mais</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 ps-4">
-                        <form>
-                            <div class="mb-5">
-                                <label for="exampleInputPassword1" class="form-label text-muted">Busca</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Digite oque pocura...">
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label text-muted">Filtro</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Selecione..</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-                        </form>
-                        <div class="card no-border shadow dep-card">
-                            <div class="card-body text-center p-5">
-                                <h5 class="dep-btn">Veja os depoimentos de nossos usuários</h5>
-                                <button type="button" class="btn btn-light mt-4 py-2 px-3">CLIQUE AQUI</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row" id="articles">
+                    <!-- DINAMIC LOADED -->
                 </div>
             </div>
         </section>
     </main>
-
 
     <footer class="footer">
         <div class="container">
@@ -210,9 +89,6 @@
                             <a class="nav-link text-muted small active" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-muted small" href="denuncias.html">Denunciar</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-muted small" href="blog.html">Blog</a>
                         </li>
                         <li class="nav-item">
@@ -224,7 +100,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-flex pt-5">
+            <div class="footer-flex pt-3">
                 <span class="text-muted small">Desenvolvido por: alunos da PUC Minas</span>
                 <span class="text-muted small">Copyright © PUC Minas 2021</span>
             </div>
