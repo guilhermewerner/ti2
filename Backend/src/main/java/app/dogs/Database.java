@@ -74,6 +74,7 @@ public class Database {
                 for (int i = 0; rs.next(); i++) {
                     testimonials[i] = new Testimonial(rs.getInt("id"), rs.getString("name"),
                             rs.getString("description"), rs.getInt("user_id"), rs.getString("type"),
+                            rs.getBoolean("type"),
                             rs.getString("location"), rs.getString("images"), rs.getString("recommendations"),
                             rs.getDate("date"));
                 }
@@ -96,7 +97,8 @@ public class Database {
 
             if (rs.first()) {
                 testimonial = new Testimonial(rs.getInt("id"), rs.getString("name"), rs.getString("description"),
-                        rs.getInt("user_id"), rs.getString("type"), rs.getString("location"), rs.getString("images"),
+                        rs.getInt("user_id"), rs.getString("type"), rs.getBoolean("type"), rs.getString("location"),
+                        rs.getString("images"),
                         rs.getString("recommendations"),
                         rs.getDate("date"));
             }

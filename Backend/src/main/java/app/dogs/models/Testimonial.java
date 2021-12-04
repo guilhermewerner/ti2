@@ -10,6 +10,7 @@ public class Testimonial {
     public String description;
     public int userId;
     public TestimonialType type;
+    public boolean approved;
     public String location;
     public String[] images;
     public String[] recommendations;
@@ -25,9 +26,11 @@ public class Testimonial {
      * @param location
      * @param images
      */
-    public Testimonial(String name, String description, int userId, TestimonialType type, String location,
+    public Testimonial(String name, String description, int userId, TestimonialType type, boolean approved,
+            String location,
             String[] images, String[] recommendations) {
-        this(RandomId.next(), name, description, userId, type, location, images, recommendations, LocalDate.now());
+        this(RandomId.next(), name, description, userId, type, approved, location, images, recommendations,
+                LocalDate.now());
     }
 
     /**
@@ -42,22 +45,25 @@ public class Testimonial {
      * @param images
      * @param date
      */
-    public Testimonial(int id, String name, String description, int userId, String type, String location, String images,
+    public Testimonial(int id, String name, String description, int userId, String type, boolean approved,
+            String location, String images,
             String recommendations,
             Date date) {
-        this(id, name, description, userId, TestimonialType.valueOf(type), location, images.split("</row/>"),
+        this(id, name, description, userId, TestimonialType.valueOf(type), approved, location, images.split("</row/>"),
                 recommendations.split("</row/>"),
                 date.toLocalDate());
     }
 
-    public Testimonial(int id, String name, String description, int userId, TestimonialType type, String location,
+    public Testimonial(int id, String name, String description, int userId, TestimonialType type, boolean approved,
+            String location,
             String[] images, String[] recommendations, LocalDate date) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.userId = userId;
         this.type = type;
-        this.location = location;
+        this.type = type;
+        this.approved = approved;
         this.images = images;
         this.recommendations = recommendations;
         this.date = date;
