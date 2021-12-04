@@ -42,11 +42,11 @@ public class Database {
                     "INSERT INTO testimonial (id, name, description, user_id, type, location, images, recommendations, date) "
                             + "VALUES ("
                             + testimonial.id + ", '"
-                            + testimonial.name + "', '"
-                            + testimonial.description + "', '"
+                            + Injection.prevent(testimonial.name) + "', '"
+                            + Injection.prevent(testimonial.description) + "', '"
                             + testimonial.userId + "', '"
-                            + testimonial.type + "', '"
-                            + testimonial.location + "', '"
+                            + testimonial.type.toString() + "', '"
+                            + Injection.prevent(testimonial.location) + "', '"
                             + testimonial.getImages() + "', '"
                             + testimonial.getRecommendations() + "', '"
                             + testimonial.date + "');");
@@ -115,11 +115,11 @@ public class Database {
         try {
             Statement st = connection.createStatement();
             String sql = "UPDATE testimonial SET name = '"
-                    + testimonial.name + "', description = '"
-                    + testimonial.description + "', user_id = '"
+                    + Injection.prevent(testimonial.name + "', description = '")
+                    + Injection.prevent(testimonial.description + "', user_id = '")
                     + testimonial.userId + "', type = '"
-                    + testimonial.type.toString() + "', location = '"
-                    + testimonial.location + "', images = '"
+                    + testimonial.type.toString() + "', '"
+                    + Injection.prevent(testimonial.location) + "', images = '"
                     + testimonial.getImages() + "', recommendations = '"
                     + testimonial.getRecommendations() + "', date = '"
                     + testimonial.date + "' WHERE id = "
@@ -156,9 +156,12 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            st.executeUpdate("INSERT INTO public.user (id, name, password_hash, email, phone) " + "VALUES (" + user.id
-                    + ", '" + user.name + "', '" + user.passwordHash + "', '" + user.email + "', '" + user.phone
-                    + "');");
+            st.executeUpdate("INSERT INTO public.user (id, name, password_hash, email, phone) " + "VALUES ("
+                    + user.id + ", '"
+                    + Injection.prevent(user.name) + "', '"
+                    + Injection.prevent(user.passwordHash) + "', '"
+                    + Injection.prevent(user.email) + "', '"
+                    + Injection.prevent(user.phone) + "');");
             st.close();
             status = true;
         } catch (SQLException u) {
@@ -239,8 +242,12 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            String sql = "UPDATE public.user SET name = '" + user.name + "', password_hash = '" + user.passwordHash
-                    + "', email = '" + user.email + "', phone = '" + user.phone + "'" + " WHERE id = " + user.id;
+            String sql = "UPDATE public.user SET name = '"
+                    + Injection.prevent(user.name + "', password_hash = '")
+                    + Injection.prevent(user.passwordHash + "', email = '")
+                    + Injection.prevent(user.email + "', phone = '")
+                    + Injection.prevent(user.phone + "'" + " WHERE id = ")
+                    + user.id;
             st.executeUpdate(sql);
             st.close();
             status = true;
