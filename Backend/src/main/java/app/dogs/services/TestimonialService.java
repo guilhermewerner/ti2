@@ -1,17 +1,22 @@
 package app.dogs.services;
 
 import java.util.ArrayList;
+import app.dogs.AzureClient;
 import app.dogs.Database;
 import app.dogs.models.Testimonial;
+import app.dogs.models.TestimonialType;
 import spark.Request;
 import spark.Response;
 
 public class TestimonialService extends BaseService {
     private Database db;
+    private AzureClient azure;
 
     public TestimonialService() {
+        this.azure = new AzureClient();
+
         try {
-            db = new Database();
+            this.db = new Database();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,6 +56,27 @@ public class TestimonialService extends BaseService {
 
         try {
             Testimonial testimonial = gson.fromJson(request.body(), Testimonial.class);
+
+            String matches = azure.extract(testimonial.description);
+
+            if (matches.contains("abandono") || matches.contains("amandonado")) {
+                testimonial.type = TestimonialType.Abandonment;
+            } else if (matches.contains("bateu") || matches.contains("agrediu")) {
+                testimonial.type = TestimonialType.Aggression;
+            } else if (matches.contains("preso") || matches.contains("acorrentado") || matches.contains("corrente")) {
+                testimonial.type = TestimonialType.Chaining;
+            } else if (matches.contains("higiene") || matches.contains("abertado")) {
+                testimonial.type = TestimonialType.Hygiene;
+            } else if (matches.contains("sol") || matches.contains("chuva") || matches.contains("relento")
+                    || matches.contains("frio")) {
+                testimonial.type = TestimonialType.Environment;
+            } else if (matches.contains("alimento") || matches.contains("comida") || matches.contains("alimentar")) {
+                testimonial.type = TestimonialType.Hungry;
+            } else if (matches.contains("ferido") || matches.contains("doente")) {
+                testimonial.type = TestimonialType.Sick;
+            } else {
+                testimonial.type = TestimonialType.None;
+            }
 
             if (!db.insertTestimonial(testimonial)) {
                 throw new Exception("Database error");

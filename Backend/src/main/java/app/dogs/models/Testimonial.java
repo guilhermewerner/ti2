@@ -12,6 +12,7 @@ public class Testimonial {
     public TestimonialType type;
     public String location;
     public String[] images;
+    public String[] recommendations;
     public LocalDate date;
 
     /**
@@ -25,8 +26,8 @@ public class Testimonial {
      * @param images
      */
     public Testimonial(String name, String description, int userId, TestimonialType type, String location,
-            String[] images) {
-        this(RandomId.next(), name, description, userId, type, location, images, LocalDate.now());
+            String[] images, String[] recommendations) {
+        this(RandomId.next(), name, description, userId, type, location, images, recommendations, LocalDate.now());
     }
 
     /**
@@ -42,13 +43,15 @@ public class Testimonial {
      * @param date
      */
     public Testimonial(int id, String name, String description, int userId, String type, String location, String images,
+            String recommendations,
             Date date) {
         this(id, name, description, userId, TestimonialType.valueOf(type), location, images.split("</row/>"),
+                recommendations.split("</row/>"),
                 date.toLocalDate());
     }
 
     public Testimonial(int id, String name, String description, int userId, TestimonialType type, String location,
-            String[] images, LocalDate date) {
+            String[] images, String[] recommendations, LocalDate date) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -56,6 +59,7 @@ public class Testimonial {
         this.type = type;
         this.location = location;
         this.images = images;
+        this.recommendations = recommendations;
         this.date = date;
     }
 
@@ -67,6 +71,20 @@ public class Testimonial {
                 result += images[i] + "</row/>";
             } else {
                 result += images[i];
+            }
+        }
+
+        return result;
+    }
+
+    public String getRecommendations() {
+        String result = "";
+
+        for (int i = 0; i < recommendations.length; i++) {
+            if (i != recommendations.length) {
+                result += recommendations[i] + "</row/>";
+            } else {
+                result += recommendations[i];
             }
         }
 

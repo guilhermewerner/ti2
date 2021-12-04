@@ -226,10 +226,14 @@ public class Database {
 
         try {
             Statement st = connection.createStatement();
-            st.executeUpdate("INSERT INTO testimonial (id, name, description, user_id, type, location, images, date) "
-                    + "VALUES (" + testimonial.id + ", '" + testimonial.name + "', '" + testimonial.description + "', '"
-                    + testimonial.userId + "', '" + testimonial.type + "', '" + testimonial.location + "', '"
-                    + testimonial.getImages() + "', '" + testimonial.date + "');");
+            st.executeUpdate(
+                    "INSERT INTO testimonial (id, name, description, user_id, type, location, images, recommendations, date) "
+                            + "VALUES (" + testimonial.id + ", '" + testimonial.name + "', '" + testimonial.description
+                            + "', '"
+                            + testimonial.userId + "', '" + testimonial.type + "', '" + testimonial.location + "', '"
+                            + testimonial.getImages() + "', '" + testimonial.getRecommendations() + "', '"
+                            + testimonial.date
+                            + "');");
             st.close();
             status = true;
         } catch (SQLException u) {
@@ -254,7 +258,8 @@ public class Database {
                 for (int i = 0; rs.next(); i++) {
                     testimonials[i] = new Testimonial(rs.getInt("id"), rs.getString("name"),
                             rs.getString("description"), rs.getInt("user_id"), rs.getString("type"),
-                            rs.getString("location"), rs.getString("images"), rs.getDate("date"));
+                            rs.getString("location"), rs.getString("images"), rs.getString("recommendations"),
+                            rs.getDate("date"));
                 }
             }
 
@@ -276,6 +281,7 @@ public class Database {
             if (rs.first()) {
                 testimonial = new Testimonial(rs.getInt("id"), rs.getString("name"), rs.getString("description"),
                         rs.getInt("user_id"), rs.getString("type"), rs.getString("location"), rs.getString("images"),
+                        rs.getString("recommendations"),
                         rs.getDate("date"));
             }
 
@@ -295,7 +301,8 @@ public class Database {
             String sql = "UPDATE testimonial SET name = '" + testimonial.name + "', description = '"
                     + testimonial.description + "', user_id = '" + testimonial.userId + "', type = '"
                     + testimonial.type.toString() + "', location = '" + testimonial.location + "', images = '"
-                    + testimonial.getImages() + "', date = '" + testimonial.date + "'" + " WHERE id = "
+                    + testimonial.getImages() + "', recommendations = '" + testimonial.getRecommendations() + "', date = '"
+                    + testimonial.date + "'" + " WHERE id = "
                     + testimonial.id;
             st.executeUpdate(sql);
             st.close();

@@ -24,7 +24,6 @@ package app.dogs.models;
  *
  * Capturar animais silvestres;
  */
-
 public enum TestimonialType {
-    None, Abandonment, Aggression, Chaining, Hygiene, Sick;
+    None, Abandonment, Aggression, Chaining, Hygiene, Environment, Hungry, Sick;
 }
