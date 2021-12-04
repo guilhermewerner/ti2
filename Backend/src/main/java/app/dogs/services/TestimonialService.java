@@ -1,6 +1,7 @@
 package app.dogs.services;
 
 import java.util.ArrayList;
+import app.dogs.AzureClient;
 import app.dogs.Database;
 import app.dogs.models.Testimonial;
 import app.dogs.models.TestimonialType;
@@ -9,10 +10,13 @@ import spark.Response;
 
 public class TestimonialService extends BaseService {
     private Database db;
+    private AzureClient azure;
 
     public TestimonialService() {
+        this.azure = new AzureClient();
+
         try {
-            db = new Database();
+            this.db = new Database();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,22 +57,22 @@ public class TestimonialService extends BaseService {
         try {
             Testimonial testimonial = gson.fromJson(request.body(), Testimonial.class);
 
-            String desc = testimonial.description;
+            String matches = azure.extract(testimonial.description);
 
-            if (desc.contains("abandono") || desc.contains("amandonado")) {
+            if (matches.contains("abandono") || matches.contains("amandonado")) {
                 testimonial.type = TestimonialType.Abandonment;
-            } else if (desc.contains("bateu") || desc.contains("agrediu")) {
+            } else if (matches.contains("bateu") || matches.contains("agrediu")) {
                 testimonial.type = TestimonialType.Aggression;
-            } else if (desc.contains("preso") || desc.contains("acorrentado") || desc.contains("corrente")) {
+            } else if (matches.contains("preso") || matches.contains("acorrentado") || matches.contains("corrente")) {
                 testimonial.type = TestimonialType.Chaining;
-            } else if (desc.contains("higiene") || desc.contains("abertado")) {
+            } else if (matches.contains("higiene") || matches.contains("abertado")) {
                 testimonial.type = TestimonialType.Hygiene;
-            } else if (desc.contains("sol") || desc.contains("chuva") || desc.contains("relento")
-                    || desc.contains("frio")) {
+            } else if (matches.contains("sol") || matches.contains("chuva") || matches.contains("relento")
+                    || matches.contains("frio")) {
                 testimonial.type = TestimonialType.Environment;
-            } else if (desc.contains("alimento") || desc.contains("alimentar")) {
+            } else if (matches.contains("alimento") || matches.contains("comida") || matches.contains("alimentar")) {
                 testimonial.type = TestimonialType.Hungry;
-            } else if (desc.contains("ferido") || desc.contains("doente")) {
+            } else if (matches.contains("ferido") || matches.contains("doente")) {
                 testimonial.type = TestimonialType.Sick;
             } else {
                 testimonial.type = TestimonialType.None;
