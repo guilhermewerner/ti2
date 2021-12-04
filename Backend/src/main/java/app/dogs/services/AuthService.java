@@ -1,5 +1,6 @@
 package app.dogs.services;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import app.dogs.Database;
 import app.dogs.models.Login;
 import app.dogs.models.User;
@@ -25,7 +26,9 @@ public class AuthService extends BaseService {
             Login login = gson.fromJson(request.body(), Login.class);
             User user = db.getUserByName(login.name);
 
-            if (login.passwordHash != user.passwordHash) {
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+            if (!encoder.matches(login.passwordHash, user.passwordHash)) {
                 throw new Exception("Inválid username or password!");
             }
 

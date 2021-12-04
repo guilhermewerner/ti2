@@ -1,6 +1,9 @@
 package app.dogs.services;
 
 import java.util.ArrayList;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import app.dogs.Database;
 import app.dogs.models.User;
 import spark.Request;
@@ -51,6 +54,9 @@ public class UserService extends BaseService {
 
         try {
             User user = gson.fromJson(request.body(), User.class);
+
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            user.passwordHash = encoder.encode(user.passwordHash);
 
             if (!db.insertUser(user)) {
                 throw new Exception("Database error");
