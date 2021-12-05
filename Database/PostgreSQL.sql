@@ -13,6 +13,7 @@ CREATE TABLE public.testimonial (
 	"description" varchar NOT NULL,
 	"user_id" int NOT NULL,
 	"type" varchar NOT NULL,
+    "approved" bool NOT NULL,
 	"location" varchar NULL,
 	"images" varchar NULL,
 	"recommendations" varchar NULL,
