@@ -30,6 +30,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- JavaScript -->
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="./js/wpp-button.js"></script>
     <script defer src="./js/login.js"></script>
     <script defer src="./js/featured.js"></script>
@@ -78,8 +79,8 @@
                 <h2 class="h-popup">LOGIN</h2>
                 <div class="form-block-login">
                     <form id="login-form" name="email-form" data-name="Email Form" class="form-login">
-                        <input type="email" class="text-field-login" maxlength="256" name="e-mail" data-name="e-mail"
-                            placeholder="E-mail" id="e-mail-login" required="">
+                        <input type="text" class="text-field-login" maxlength="256" name="e-mail" data-name="e-mail"
+                            placeholder="Nome" id="e-mail-login" required="">
                         <input type="password" class="text-field-login" maxlength="256" name="senha" data-name="senha"
                             placeholder="Senha" id="senha-login" required="">
                         <input type="submit" value="Entrar" id="button-login" class="button-login w-button">
@@ -92,14 +93,12 @@
                 <h2 class="h-popup">SIGNUP</h2>
                 <div class="form-block-signup">
                     <form id="signup-form" name="signup-form" data-name="Signup Form" class="form-signup">
-                        <input type="text" class="text-field-signup half-l" maxlength="256" name="nome" data-name="nome"
+                        <input type="text" class="text-field-signup" maxlength="256" name="nome" data-name="nome"
                             placeholder="Nome " id="nome-signup" required="">
-                        <input type="text" class="text-field-signup half-r" maxlength="256" name="Sobrenome"
-                            data-name="Sobrenome" placeholder="Sobrenome" id="sobrenome-signup" required="">
                         <input type="email" class="text-field-signup" maxlength="256" name="e-mail" data-name="e-mail"
                             placeholder="E-mail" id="e-mail-signup" required="">
                         <input type="password" class="text-field-signup" maxlength="256" name="senha" data-name="senha"
-                            placeholder="Nova senha" id="senha-signup" required="">
+                            placeholder="Senha" id="senha-signup" required="">
                         <input type="password" class="text-field-signup" maxlength="256" name="senha-confirmation"
                             data-name="senha-confirmation" placeholder="Confirmar senha" id="senha-confirmation-signup"
                             required="">
@@ -151,7 +150,6 @@
                                 <a href="mailto:inhaverde.sede@ibama.gov.br" class="card-link text-muted">Entre em
                                     contato</a>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-lg mb-3">
@@ -255,7 +253,9 @@
                                             </div>
                                         </div>
                                         <div class="wpp-3">
-                                            <a class="wpp-redirect" href="https://lucas-cabral-vieira-302x5.chat.blip.ai/?appKey=bWF1c3RyYXRvczoyMDc0ZDExMS05OGZkLTRjMzItOThkNi05ZDllZWY0NjcxMTQ=" target="_blank">
+                                            <a class="wpp-redirect"
+                                                href="https://lucas-cabral-vieira-302x5.chat.blip.ai/?appKey=bWF1c3RyYXRvczoyMDc0ZDExMS05OGZkLTRjMzItOThkNi05ZDllZWY0NjcxMTQ="
+                                                target="_blank">
                                                 Iniciar conversa
                                             </a>
                                         </div>
