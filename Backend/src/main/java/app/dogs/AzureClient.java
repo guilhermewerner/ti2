@@ -9,8 +9,7 @@ public class AzureClient {
 
     private TextAnalyticsClient client;
 
-    public AzureClient()
-    {
+    public AzureClient() {
         String key = System.getenv("JAVA_AZURE_API_KEY");
 
         this.client = new TextAnalyticsClientBuilder()

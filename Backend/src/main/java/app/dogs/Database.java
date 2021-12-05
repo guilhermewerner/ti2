@@ -7,15 +7,10 @@ public class Database {
     private Connection connection;
 
     public Database() throws Exception {
-        String host = "localhost";
-        int port = 5432;
-        String user = "postgres";
-        String pass = "1234";
-
-        String url = "jdbc:postgresql://" + host + ":" + port + "/postgres";
+        String url = "jdbc:postgresql://bd-trabalho-ti2.postgres.database.azure.com:5432/postgres";
         Class.forName("org.postgresql.Driver");
 
-        connection = DriverManager.getConnection(url, user, pass);
+        connection = DriverManager.getConnection(url, "brabuzao", System.getenv("JAVA_AZURE_PASSWORD"));
     }
 
     public boolean close() {
