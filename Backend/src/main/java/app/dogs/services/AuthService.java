@@ -28,12 +28,12 @@ public class AuthService extends BaseService {
 
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-            if (!encoder.matches(login.passwordHash, user.passwordHash)) {
+            if (!encoder.matches(login.password, user.password)) {
                 throw new Exception("Inválid username or password!");
             }
 
             response.status(200);
-            return "{ \"status\": \"success\" }";
+            return "{ \"id\": \"" + user.id + "\" }";
         } catch (Exception e) {
             response.status(500);
             return "{ \"error\": \"" + e + "\" }";

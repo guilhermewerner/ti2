@@ -6,7 +6,7 @@ Content-Type: application/json
 {
     "id": 1,
     "name": "Guilherme",
-    "passwordHash": "123",
+    "password": "123",
     "email": "Blabla blabla",
     "phone": "1234567890"
 }
@@ -18,7 +18,7 @@ Content-Type: application/json
 
 {
     "name": "Guilherme",
-    "password": "123",
+    "password": "123"
 }
 
 ###
