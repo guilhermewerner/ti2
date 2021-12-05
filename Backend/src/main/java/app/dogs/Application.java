@@ -14,24 +14,14 @@ public class Application {
         port(5555);
 
         options("/*", (request, response) -> {
-            String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
-            if (accessControlRequestHeaders != null) {
-                response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
-            }
-
-            String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
-
-            if (accessControlRequestMethod != null) {
-                response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
-            }
+            response.header("Access-Control-Allow-Headers", "*");
+            response.header("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
 
             return "OK";
         });
 
         before((request, response) -> {
             response.header("Access-Control-Allow-Origin", "*");
-            response.header("Access-Control-Allow-Headers", "*");
-            response.type("application/json");
         });
 
         post("/login", "application/json", (request, response) -> authService.login(request, response));

@@ -6,11 +6,10 @@ document.getElementById("testimonial-post").addEventListener("click", function (
 
 function CreateTestimonial() {
     let name = document.getElementById("testimonial-name").value;
+    let location = document.getElementById("testimonial-location").value;
     let description = document.getElementById("testimonial-content").value;
 
-    let headers = new Headers();
-    headers.append("Accept", "application/json");
-    headers.append("Content-Type", "application/json");
+    const date = new Date();
 
     let body = {
         id: Math.floor(Math.random() * (1000 - 1) + 1),
@@ -18,34 +17,55 @@ function CreateTestimonial() {
         description,
         userId: 1,
         type: "None",
-        location: "Brasil",
-        images: [
-            "linda.png"
-        ],
+        location,
+        images: [],
+        recommendations: [],
         date: {
-            year: 2012,
-            month: 4,
-            day: 23
+            year: date.getFullYear(),
+            month: date.getMonth() + 1,
+            day: date.getDate()
         }
     }
 
-    console.log(body);
+    axios.post("http://localhost:5555/testimonials", body, { headers: { "Content-Type": "application/json" } })
+        .then(function (response) {
+            axios.get(`http://localhost:5555/testimonials/${body.id}`)
+                .then(function (response) {
+                    let data = response.data;
+                    console.log(data);
 
-    let request = new Request("http://localhost:5555/testimonials", {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
-    });
+                    let recommendations = "";
+                    data.recommendations.forEach(element => {
+                        recommendations += `
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <p class="mb-1">
+                                    ${element}
+                                </p>
+                            </a>
+                        `;
+                    });
 
-    fetch(request).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (data) {
-                console.log(data);
-            });
-        } else {
-            console.log("Network response was not ok.");
-        }
-    }).catch(function (error) {
-        console.log("There has been a problem with your fetch operation: " + error.message);
-    });
+                    let content = "";
+                    content += `
+                        <div class="mb-5 pb-2">
+                            <h2>${body.name} #${body.id}</h2>
+                            <p>
+                                ${body.description}
+                            </p>
+                        </div>
+                        <div class="list-group">
+                            ${recommendations}
+                        </div>
+                    `;
+
+                    let wrapper = document.getElementById("depoiment-wrapper");
+                    wrapper.innerHTML = content;
+                })
+                .catch(function (error) {
+                    console.log(error.statusText);
+                });
+        })
+        .catch(function (error) {
+            console.log(error.statusText);
+        });
 }

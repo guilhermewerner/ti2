@@ -2,6 +2,7 @@ package app.dogs.services;
 
 import java.util.ArrayList;
 import app.dogs.AzureClient;
+import app.dogs.Recomendations;
 import app.dogs.Database;
 import app.dogs.models.Testimonial;
 import app.dogs.models.TestimonialType;
@@ -61,19 +62,27 @@ public class TestimonialService extends BaseService {
 
             if (matches.contains("abandono") || matches.contains("amandonado")) {
                 testimonial.type = TestimonialType.Abandonment;
+                testimonial.recommendations = Recomendations.abandonment();
             } else if (matches.contains("bateu") || matches.contains("agrediu")) {
                 testimonial.type = TestimonialType.Aggression;
+                testimonial.recommendations = Recomendations.aggression();
             } else if (matches.contains("preso") || matches.contains("acorrentado") || matches.contains("corrente")) {
                 testimonial.type = TestimonialType.Chaining;
+                testimonial.recommendations = Recomendations.chaining();
             } else if (matches.contains("higiene") || matches.contains("abertado")) {
                 testimonial.type = TestimonialType.Hygiene;
+                testimonial.recommendations = Recomendations.hygiene();
             } else if (matches.contains("sol") || matches.contains("chuva") || matches.contains("relento")
                     || matches.contains("frio")) {
                 testimonial.type = TestimonialType.Environment;
-            } else if (matches.contains("alimento") || matches.contains("comida") || matches.contains("alimentar")) {
+                testimonial.recommendations = Recomendations.environment();
+            } else if (matches.contains("alimento") || matches.contains("comida") || matches.contains("alimentar")
+                    || matches.contains("fome")) {
                 testimonial.type = TestimonialType.Hungry;
+                testimonial.recommendations = Recomendations.hungry();
             } else if (matches.contains("ferido") || matches.contains("doente")) {
                 testimonial.type = TestimonialType.Sick;
+                testimonial.recommendations = Recomendations.sick();
             } else {
                 testimonial.type = TestimonialType.None;
             }
@@ -86,6 +95,7 @@ public class TestimonialService extends BaseService {
             return "{ \"status\": \"success\" }";
         } catch (Exception e) {
             response.status(500);
+            e.printStackTrace();
             return "{ \"error\": \"" + e + "\" }";
         }
     }
