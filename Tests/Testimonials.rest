@@ -1,14 +1,14 @@
 // testimonials
 
-GET http://localhost:5555/testimonials
+GET http://localhost:80/testimonials
 
 ###
 
-GET http://localhost:5555/testimonials/1
+GET http://localhost:80/testimonials/1
 
 ###
 
-POST http://localhost:5555/testimonials
+POST http://localhost:80/testimonials
 Content-Type: application/json
 
 {
@@ -33,7 +33,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:5555/testimonials/2
+PUT http://localhost:80/testimonials/2
 Content-Type: application/json
 
 {
@@ -58,4 +58,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:5555/testimonials/1
+DELETE http://localhost:80/testimonials/1

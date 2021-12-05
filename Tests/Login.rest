@@ -1,19 +1,19 @@
 // auth
 
-POST http://localhost:5555/register
+POST http://localhost:80/register
 Content-Type: application/json
 
 {
     "id": 1,
     "name": "Guilherme",
-    "password": "123",
-    "email": "Blabla blabla",
+    "password": "batata",
+    "email": "guilherme.werner@tribufu.com",
     "phone": "1234567890"
 }
 
 ###
 
-POST http://localhost:5555/login
+POST http://localhost:80/login
 Content-Type: application/json
 
 {
