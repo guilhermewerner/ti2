@@ -21,6 +21,7 @@
     <link href="./css/global.css" rel="stylesheet" />
 
     <!-- Page Scripts -->
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="./js/depoimentos.js"></script>
 </head>
 
@@ -63,7 +64,7 @@
             </div>
         </section>
         <section class="sep blog-section">
-            <div class="container">
+            <div class="container" id="depoiment-wrapper">
                 <div class="mb-5 pb-2">
                     <h2>Condições para aprovação de depoimento</h2>
                     <p>
@@ -83,12 +84,15 @@
                             </div>
                             <div class="flex-fill">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="testimonial-name"
-                                        placeholder="Nos diga seu nome">
+                                    <input type="text" class="form-control" id="testimonial-name" placeholder="Assunto">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="testimonial-location"
+                                        placeholder="Localização">
                                 </div>
                                 <div class="mb-3">
                                     <textarea class="form-control" id="testimonial-content" rows="2"
-                                        placeholder="Dê seu depoimento"></textarea>
+                                        placeholder="Descrição"></textarea>
                                 </div>
                             </div>
                         </div>
