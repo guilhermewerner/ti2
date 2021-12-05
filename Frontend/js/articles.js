@@ -29,6 +29,6 @@ function PopulateArticles() {
 $(window).on('load', function () {
     let xhr = new XMLHttpRequest();
     xhr.onload = PopulateArticles;
-    xhr.open("GET", "https://trabalho-ti-news.herokuapp.com");
+    xhr.open("GET", "https://trabalho-ti-news.herokuapp.com/listing");
     xhr.send();
 })

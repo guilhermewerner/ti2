@@ -49,7 +49,7 @@ $(window).on('load', function () {
     let xhr = new XMLHttpRequest();
     xhr.onload = exibeNoticias;
     let resultsNumber = 3;
-    let url = "https://trabalho-ti-news.herokuapp.com";
+    let url = "https://trabalho-ti-news.herokuapp.com/featured";
     xhr.open(
         "GET",
         url
