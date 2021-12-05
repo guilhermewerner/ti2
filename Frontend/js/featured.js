@@ -49,7 +49,7 @@ $(window).on('load', function () {
     let xhr = new XMLHttpRequest();
     xhr.onload = exibeNoticias;
     let resultsNumber = 3;
-    let url = "https://newsapi.org/v2/everything?q=animais+animal&sortBy=relevancy&pageSize=3&apiKey=8d780d9e683a4182973a1c2823134384";
+    let url = "https://trabalho-ti-news.herokuapp.com";
     xhr.open(
         "GET",
         url

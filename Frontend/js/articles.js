@@ -29,6 +29,6 @@ function PopulateArticles() {
 $(window).on('load', function () {
     let xhr = new XMLHttpRequest();
     xhr.onload = PopulateArticles;
-    xhr.open("GET", "https://newsapi.org/v2/everything?q=animais+animal&sortBy=relevancy&pageSize=15&apiKey=8d780d9e683a4182973a1c2823134384");
+    xhr.open("GET", "https://trabalho-ti-news.herokuapp.com");
     xhr.send();
 })

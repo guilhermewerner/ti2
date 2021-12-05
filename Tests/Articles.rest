@@ -1,0 +1,9 @@
+// articles
+
+GET https://trabalho-ti-news.herokuapp.com/featured
+
+###
+
+GET https://trabalho-ti-news.herokuapp.com/listing
+
+###
