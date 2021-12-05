@@ -14,11 +14,32 @@
     border-radius: 4px;
 }
 
+body {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.container-nav{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
 .navbar {
     background: #ffffff;
 }
 
 .navbar-brand {
+    width: auto;
     text-transform: uppercase;
     font-size: 1.4em;
     font-weight: 650;
@@ -113,6 +134,13 @@
     text-transform: capitalize;
     font-size: 18px;
     color: whitesmoke;
+}
+
+.wpp-redirect {
+    text-decoration: none;
+}
+.wpp-redirect:hover {
+    color: white;
 }
 
 /*.btn {
@@ -245,6 +273,7 @@ h5.card-title {
     }
 }
 
+
 .click-here {
     font-size: large;
     font-weight: 500;
@@ -355,6 +384,23 @@ footer {
 .mt-4 {
     text-align: center;
 }
+
+@media screen and (max-width: 1000px) {
+    #navbarSupportedContent {
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+        position: absolute;
+        top: 110px;
+        background-color: white;
+        width: 100vw;
+        left: 0px;
+        padding-left: 5vw;
+        border-top: black;
+        border-top-width: 1px;
+    }
+}
+
 
 @media screen and (max-width: 600px) {
     .container-blog {
