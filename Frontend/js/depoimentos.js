@@ -27,9 +27,9 @@ function CreateTestimonial() {
         }
     }
 
-    axios.post("http://localhost:5555/testimonials", body, { headers: { "Content-Type": "application/json" } })
+    axios.post("https://dogs.tribufu.com/testimonials", body, { headers: { "Content-Type": "application/json" } })
         .then(function (response) {
-            axios.get(`http://localhost:5555/testimonials/${body.id}`)
+            axios.get(`https://dogs.tribufu.com/testimonials/${body.id}`)
                 .then(function (response) {
                     let data = response.data;
                     console.log(data);

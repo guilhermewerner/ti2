@@ -1,5 +1,13 @@
 // articles
 
+GET http://localhost:3000/featured
+
+###
+
+GET http://localhost:3000/listing
+
+###
+
 GET https://trabalho-ti-news.herokuapp.com/featured
 
 ###

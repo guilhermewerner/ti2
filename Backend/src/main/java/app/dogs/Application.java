@@ -11,7 +11,7 @@ public class Application {
     public static void main(String[] args) {
         staticFiles.location("/");
 
-        port(5555);
+        port(80);
 
         options("/*", (request, response) -> {
             response.header("Access-Control-Allow-Headers", "*");
