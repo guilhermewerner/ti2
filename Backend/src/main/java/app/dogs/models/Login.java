@@ -2,14 +2,14 @@ package app.dogs.models;
 
 public class Login {
     public String name;
-    public String passwordHash;
+    public String password;
 
     /**
      * @param name
-     * @param passwordHash
+     * @param password
      */
-    public Login(String name, String passwordHash) {
+    public Login(String name, String password) {
         this.name = name;
-        this.passwordHash = passwordHash;
+        this.password = password;
     }
 }

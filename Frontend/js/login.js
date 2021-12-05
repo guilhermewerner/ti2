@@ -1,4 +1,4 @@
-//Valida a senha
+// Valida a senha
 let password = document.getElementById("senha-signup"),
     confirm_password = document.getElementById("senha-confirmation-signup");
 
@@ -13,7 +13,35 @@ function validatePassword() {
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 
-//Animacoes de cliques de login e signup
+// Fazer login na API
+
+document.getElementById("login-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    BackendLogin();
+});
+
+function BackendLogin() {
+    let name = document.getElementById("e-mail-login").value;
+    let password = document.getElementById("senha-login").value;
+
+    let body = {
+        name,
+        password,
+    }
+
+    axios.post("http://localhost:5555/login", body, { headers: { "Content-Type": "application/json" } })
+        .then(function (response) {
+            console.log(response);
+            window.sessionStorage.setItem("session_id", response.data.id);
+            close();
+        })
+        .catch(function (error) {
+            console.log(error.statusText);
+        });
+}
+
+// Animacoes de cliques de login e signup
+
 let loginClick = function () {
     $("#signup-block").fadeTo("fast", 0).css("display", "none");
     $("#login-block").css("display", "flex").fadeTo("fast", 1);
@@ -35,7 +63,6 @@ let close = function () {
         $("#signup-block").css("display", "none");
         $("#wrapper-login-signup").css("display", "none");
     }, 200);
-
 }
 
 $("#login-nav-button").on("click", loginClick);

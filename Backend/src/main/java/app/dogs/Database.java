@@ -161,7 +161,7 @@ public class Database {
             st.executeUpdate("INSERT INTO public.user (id, name, password_hash, email, phone) " + "VALUES ("
                     + user.id + ", '"
                     + Injection.prevent(user.name) + "', '"
-                    + Injection.prevent(user.passwordHash) + "', '"
+                    + Injection.prevent(user.password) + "', '"
                     + Injection.prevent(user.email) + "', '"
                     + Injection.prevent(user.phone) + "');");
             st.close();
@@ -224,7 +224,8 @@ public class Database {
 
         try {
             Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet rs = st.executeQuery("SELECT * FROM public.user WHERE public.user.name = " + name);
+            ResultSet rs = st
+                    .executeQuery("SELECT * FROM public.user WHERE public.user.name = '" + Injection.prevent(name) + "';");
 
             if (rs.first()) {
                 user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("password_hash"),
@@ -246,7 +247,7 @@ public class Database {
             Statement st = connection.createStatement();
             String sql = "UPDATE public.user SET name = '"
                     + Injection.prevent(user.name + "', password_hash = '")
-                    + Injection.prevent(user.passwordHash + "', email = '")
+                    + Injection.prevent(user.password + "', email = '")
                     + Injection.prevent(user.email + "', phone = '")
                     + Injection.prevent(user.phone + "'" + " WHERE id = ")
                     + user.id;

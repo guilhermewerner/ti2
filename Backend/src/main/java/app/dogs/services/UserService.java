@@ -56,7 +56,7 @@ public class UserService extends BaseService {
             User user = gson.fromJson(request.body(), User.class);
 
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            user.passwordHash = encoder.encode(user.passwordHash);
+            user.password = encoder.encode(user.password);
 
             if (!db.insertUser(user)) {
                 throw new Exception("Database error");

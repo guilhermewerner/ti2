@@ -1,6 +1,5 @@
 document.getElementById("testimonial-post").addEventListener("click", function (event) {
     event.preventDefault();
-
     CreateTestimonial();
 });
 
@@ -8,6 +7,7 @@ function CreateTestimonial() {
     let name = document.getElementById("testimonial-name").value;
     let location = document.getElementById("testimonial-location").value;
     let description = document.getElementById("testimonial-content").value;
+    let userId = window.sessionStorage.getItem('session_id');
 
     const date = new Date();
 
@@ -15,7 +15,7 @@ function CreateTestimonial() {
         id: Math.floor(Math.random() * (1000 - 1) + 1),
         name,
         description,
-        userId: 1,
+        userId,
         type: "None",
         location,
         images: [],
